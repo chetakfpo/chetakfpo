@@ -106,7 +106,9 @@
         .hero-text p { font-size: 16px; margin-bottom: 15px; line-height: 1.7; color: #e8f5e9; }
         .hero-text ul { list-style: none; margin-top: 15px; }
         .hero-text ul li { margin-bottom: 12px; font-size: 15px; background: rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; }
-        .hero-image { flex: 1; min-width: 300px; background-color: #fff; display: flex; align-items: center; justify-content: center; }
+        
+        .hero-image { flex: 1; min-width: 300px; background-color: var(--dark-green); display: flex; align-items: center; justify-content: center; }
+        /* Hero Image Default (Desktop) */
         .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-left: 4px solid var(--primary-green); }
 
         /* Section Styling */
@@ -155,6 +157,13 @@
             nav { top: 160px; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px 5px; }
             nav a { margin: 5px; font-size: 14px; padding: 6px; }
             .hero-text { padding: 25px; }
+            
+            /* FIXED: Collector Photo Mobile Fix (No Cropping) */
+            .hero-image img { 
+                height: auto; 
+                object-fit: contain; 
+            }
+            
             .contact-grid { grid-template-columns: 1fr; }
             .slider-item { flex: 0 0 240px; max-width: 240px; } 
         }
@@ -213,7 +222,7 @@
         </div>
 
         <div class="content-box fade-in" id="about">
-            <h2 class="section-title">हमारे बारे में</h2>
+            <h2 class="section-title">हमारे बारे बारे में</h2>
             <p style="font-size: 16px;"><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong> किसानों का एक समर्पित संगठन है। हमारा उद्देश्य किसानों को सशक्त बनाना, उन्हें आधुनिक तकनीक से जोड़ना और उनकी आय में वृद्धि करना है।</p>
             <br>
             <div style="background-color: var(--light-green); padding: 25px; border-left: 5px solid var(--primary-green); border-radius: 8px;">
@@ -257,7 +266,7 @@
             <h2 class="section-title">फोटो गैलरी</h2>
             <div class="grid-gallery">
                 <div class="gallery-card"><img src="gallery-office-1.jpeg" alt="Office Activity"><p>कार्यालय गतिविधि</p></div>
-                <div class="gallery-card"><img src="gallery-office-2.jpeg" alt="Office Setup"><p>चेतक FPO ऑफिस</p></div>
+                <div class="gallery-card"><img src="gallery-office-2.jpeg" alt="Office Setup"><p>चेतक FPO</p></div>
                 <div class="gallery-card"><img src="gallery-office-3.jpeg" alt="Team Discussion"><p>सदस्यों के साथ चर्चा</p></div>
                 <div class="gallery-card"><img src="gallery-farmer-meeting.jpeg" alt="Farmer Engagement"><p>किसान बैठक व जागरूकता</p></div>
                 
