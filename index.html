@@ -152,11 +152,19 @@
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .header-top { flex-direction: column; text-align: center; gap: 10px; }
-            .news-ticker { top: 125px; }
-            nav { top: 160px; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px 5px; }
-            nav a { margin: 5px; font-size: 14px; padding: 6px; }
-            .hero-text { padding: 25px; }
+            /* FIXED: Collector Photo Mobile 100% Fix */
+        .hero-image {
+            width: 100%;
+            display: block;
+            background-color: var(--white); /* पीछे का डार्क रंग हटाया ताकि फोटो साफ दिखे */
+        }
+        .hero-image img { 
+            width: 100% !important; 
+            height: auto !important; 
+            object-fit: contain !important; 
+            display: block !important;
+        }
+           
             
             /* FIXED: Collector Photo Mobile Fix (No Cropping) */
             .hero-image img { 
