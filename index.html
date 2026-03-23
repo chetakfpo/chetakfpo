@@ -75,17 +75,9 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             border-bottom: 1px solid #113d15;
         }
-        .ticker-content {
-            display: inline-block;
-            animation: tickerScroll 25s linear infinite;
-        }
-        .ticker-content:hover {
-            animation-play-state: paused; 
-        }
-        @keyframes tickerScroll {
-            0% { transform: translateX(100vw); }
-            100% { transform: translateX(-100%); }
-        }
+        .ticker-content { display: inline-block; animation: tickerScroll 25s linear infinite; }
+        .ticker-content:hover { animation-play-state: paused; }
+        @keyframes tickerScroll { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
 
         /* Navigation Menu */
         nav { background-color: var(--white); text-align: center; padding: 12px 0; box-shadow: var(--shadow-sm); position: sticky; top: 125px; z-index: 998; }
@@ -108,7 +100,6 @@
         .hero-text ul li { margin-bottom: 12px; font-size: 15px; background: rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; }
         
         .hero-image { flex: 1; min-width: 300px; background-color: var(--dark-green); display: flex; align-items: center; justify-content: center; }
-        /* Hero Image Default (Desktop) */
         .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-left: 4px solid var(--primary-green); }
 
         /* Section Styling */
@@ -121,16 +112,29 @@
         .slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 10px; -ms-overflow-style: none; scrollbar-width: none; }
         .slider-container::-webkit-scrollbar { display: none; }
         .slider-item { flex: 0 0 260px; max-width: 260px; scroll-snap-align: center; border-radius: 10px; border: 1px solid #c8e6c9; box-shadow: var(--shadow-sm); background: #fff; padding: 10px; transition: 0.3s; }
-        .slider-item img { width: 100%; height: auto; border-radius: 6px; display: block; border: 1px solid #eee; }
+        .slider-item img { width: 100%; height: auto; border-radius: 6px; display: block; border: 1px solid #eee; cursor: pointer; }
         .slider-item h4 { text-align: center; color: var(--dark-green); margin-top: 12px; font-size: 15px; font-weight: 600; }
 
         /* Gallery Grid */
         .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .gallery-card { border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid #c8e6c9; transition: 0.3s; background: #fff; }
         .gallery-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary-green); }
-        .gallery-card img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .gallery-card img { width: 100%; height: 250px; object-fit: cover; display: block; cursor: pointer; }
         .gallery-card img.fix-all-photo { object-fit: contain; background-color: #f8f9fa; }
         .gallery-card p { padding: 15px; text-align: center; font-weight: 600; color: var(--dark-green); background: var(--light-green); margin: 0; font-family: 'Poppins', sans-serif; }
+
+        /* LIGHTBOX POPUP CSS */
+        .lightbox { display: none; position: fixed; z-index: 2000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); backdrop-filter: blur(5px); }
+        .lightbox-content { margin: auto; display: block; max-width: 90%; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease; }
+        #lightbox-caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 15px 0; font-size: 18px; font-family: 'Poppins', sans-serif; }
+        .lightbox-close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .lightbox-close:hover { color: var(--primary-green); }
+        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        /* BACK TO TOP BUTTON CSS */
+        #backToTopBtn { display: none; position: fixed; bottom: 30px; right: 30px; z-index: 99; font-size: 20px; border: none; outline: none; background-color: var(--primary-green); color: white; cursor: pointer; width: 50px; height: 50px; border-radius: 50%; box-shadow: var(--shadow-md); transition: 0.3s; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; }
+        #backToTopBtn.show { opacity: 1; visibility: visible; }
+        #backToTopBtn:hover { background-color: var(--dark-green); transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
 
         /* Action Buttons */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
@@ -152,28 +156,16 @@
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            /* FIXED: Collector Photo Mobile 100% Fix */
-        .hero-image {
-            width: 100%;
-            display: block;
-            background-color: var(--white); /* पीछे का डार्क रंग हटाया ताकि फोटो साफ दिखे */
-        }
-        .hero-image img { 
-            width: 100% !important; 
-            height: auto !important; 
-            object-fit: contain !important; 
-            display: block !important;
-        }
-           
-            
-            /* FIXED: Collector Photo Mobile Fix (No Cropping) */
-            .hero-image img { 
-                height: auto; 
-                object-fit: contain; 
-            }
-            
+            .header-top { flex-direction: column; text-align: center; gap: 10px; }
+            .news-ticker { top: 125px; }
+            nav { top: 160px; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px 5px; }
+            nav a { margin: 5px; font-size: 14px; padding: 6px; }
+            .hero-text { padding: 25px; }
+            .hero-image { background-color: var(--white); }
+            .hero-image img { height: auto; object-fit: contain !important; display: block !important; width: 100% !important; }
             .contact-grid { grid-template-columns: 1fr; }
             .slider-item { flex: 0 0 240px; max-width: 240px; } 
+            #backToTopBtn { bottom: 20px; right: 20px; width: 45px; height: 45px; font-size: 18px; }
         }
     </style>
 </head>
@@ -230,7 +222,7 @@
         </div>
 
         <div class="content-box fade-in" id="about">
-            <h2 class="section-title">हमारे बारे बारे में</h2>
+            <h2 class="section-title">हमारे बारे में</h2>
             <p style="font-size: 16px;"><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong> किसानों का एक समर्पित संगठन है। हमारा उद्देश्य किसानों को सशक्त बनाना, उन्हें आधुनिक तकनीक से जोड़ना और उनकी आय में वृद्धि करना है।</p>
             <br>
             <div style="background-color: var(--light-green); padding: 25px; border-left: 5px solid var(--primary-green); border-radius: 8px;">
@@ -242,28 +234,28 @@
 
         <div class="content-box fade-in" id="documents">
             <h2 class="section-title">संस्था के आधिकारिक दस्तावेज़</h2>
-            <p style="margin-bottom: 15px; color: var(--text-muted);">चेतक FPO एक पूर्णतः पंजीकृत और प्रमाणित संस्था है। (दस्तावेज़ अपने आप स्लाइड हो रहे हैं):</p>
+            <p style="margin-bottom: 15px; color: var(--text-muted);">चेतक FPO एक पूर्णतः पंजीकृत और प्रमाणित संस्था है। (दस्तावेज़ देखने के लिए उन पर क्लिक करें):</p>
             
             <div class="slider-wrapper">
                 <div class="slider-container" id="autoSlider">
                     <div class="slider-item">
-                        <img src="doc-reg.jpeg" alt="FSSAI लाइसेंस">
+                        <img src="doc-reg.jpeg" alt="FSSAI लाइसेंस" class="zoomable-img">
                         <h4>🍽️ FSSAI लाइसेंस</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-pan.jpeg" alt="पैन कार्ड">
+                        <img src="doc-pan.jpeg" alt="पैन कार्ड" class="zoomable-img">
                         <h4>💳 पैन कार्ड (PAN)</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-udyam.jpeg" alt="उद्यम प्रमाणपत्र">
+                        <img src="doc-udyam.jpeg" alt="उद्यम प्रमाणपत्र" class="zoomable-img">
                         <h4>🏢 उद्यम प्रमाणपत्र</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-gst.jpeg" alt="GST प्रमाणपत्र">
+                        <img src="doc-gst.jpeg" alt="GST प्रमाणपत्र" class="zoomable-img">
                         <h4>🧾 GST प्रमाणपत्र</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-fssai.jpeg" alt="पंजीकरण प्रमाणपत्र">
+                        <img src="doc-fssai.jpeg" alt="पंजीकरण प्रमाणपत्र" class="zoomable-img">
                         <h4>📄 पंजीकरण प्रमाणपत्र</h4>
                     </div>
                 </div>
@@ -273,20 +265,20 @@
         <div class="content-box fade-in" id="gallery">
             <h2 class="section-title">फोटो गैलरी</h2>
             <div class="grid-gallery">
-                <div class="gallery-card"><img src="gallery-office-1.jpeg" alt="Office Activity"><p>कार्यालय गतिविधि</p></div>
-                <div class="gallery-card"><img src="gallery-office-2.jpeg" alt="Office Setup"><p>चेतक FPO</p></div>
-                <div class="gallery-card"><img src="gallery-office-3.jpeg" alt="Team Discussion"><p>सदस्यों के साथ चर्चा</p></div>
-                <div class="gallery-card"><img src="gallery-farmer-meeting.jpeg" alt="Farmer Engagement"><p>किसान बैठक व जागरूकता</p></div>
+                <div class="gallery-card"><img src="gallery-office-1.jpeg" alt="कार्यालय गतिविधि" class="zoomable-img"><p>कार्यालय गतिविधि</p></div>
+                <div class="gallery-card"><img src="gallery-office-2.jpeg" alt="चेतक FPO" class="zoomable-img"><p>चेतक FPO</p></div>
+                <div class="gallery-card"><img src="gallery-office-3.jpeg" alt="सदस्यों के साथ चर्चा" class="zoomable-img"><p>सदस्यों के साथ चर्चा</p></div>
+                <div class="gallery-card"><img src="gallery-farmer-meeting.jpeg" alt="किसान बैठक व जागरूकता" class="zoomable-img"><p>किसान बैठक व जागरूकता</p></div>
                 
                 <div class="gallery-card">
-                    <img src="certificates-photo.jpeg" class="fix-all-photo" alt="FPO Certificates">
+                    <img src="certificates-photo.jpeg" class="fix-all-photo zoomable-img" alt="CEO PAVAN VAISHNAV प्रमाणपत्रों के साथ">
                     <p>CEO PAVAN VAISHNAV प्रमाणपत्रों के साथ</p>
                 </div>
                 
-                <div class="gallery-card"><img src="fpo-banner.jpeg" alt="FPO Banner"><p>संस्था का आधिकारिक बैनर</p></div>
-                <div class="gallery-card"><img src="activity-poster.jpeg" alt="Activities Poster"><p>एफपीओ की मुख्य विशेषताएं</p></div>
-                <div class="gallery-card"><img src="gallery-news.jpeg" alt="News and Activities"><p>मीडिया कवरेज</p></div>
-                <div class="gallery-card"><img src="gallery-office-old.jpeg" alt="Office Inauguration"><p>कार्यालय उद्घाटन समारोह</p></div>
+                <div class="gallery-card"><img src="fpo-banner.jpeg" alt="संस्था का आधिकारिक बैनर" class="zoomable-img"><p>संस्था का आधिकारिक बैनर</p></div>
+                <div class="gallery-card"><img src="activity-poster.jpeg" alt="एफपीओ की मुख्य विशेषताएं" class="zoomable-img"><p>एफपीओ की मुख्य विशेषताएं</p></div>
+                <div class="gallery-card"><img src="gallery-news.jpeg" alt="मीडिया कवरेज" class="zoomable-img"><p>मीडिया कवरेज</p></div>
+                <div class="gallery-card"><img src="gallery-office-old.jpeg" alt="कार्यालय उद्घाटन समारोह" class="zoomable-img"><p>कार्यालय उद्घाटन समारोह</p></div>
             </div>
         </div>
 
@@ -336,9 +328,19 @@
         </div>
     </footer>
 
+    <div id="lightboxModal" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <button id="backToTopBtn" title="सबसे ऊपर जाएँ">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Fade-in Animation
+            // 1. Fade-in Animation
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -351,7 +353,7 @@
                 observer.observe(el);
             });
 
-            // Automatic Slider Logic
+            // 2. Automatic Slider Logic
             const slider = document.getElementById('autoSlider');
             if (slider) {
                 let scrollInterval;
@@ -374,6 +376,51 @@
                 slider.addEventListener('touchstart', stopAutoScroll);
                 slider.addEventListener('touchend', startAutoScroll);
             }
+
+            // 3. Lightbox Logic
+            const modal = document.getElementById("lightboxModal");
+            const modalImg = document.getElementById("lightboxImg");
+            const captionText = document.getElementById("lightbox-caption");
+            const closeBtn = document.getElementsByClassName("lightbox-close")[0];
+            const images = document.querySelectorAll('.zoomable-img');
+
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                });
+            });
+
+            // Close Lightbox on 'X' click
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Close Lightbox on outside click
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            // 4. Back to Top Logic
+            const backToTopBtn = document.getElementById("backToTopBtn");
+
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    backToTopBtn.classList.add("show");
+                } else {
+                    backToTopBtn.classList.remove("show");
+                }
+            };
+
+            backToTopBtn.addEventListener("click", function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
         });
     </script>
 
