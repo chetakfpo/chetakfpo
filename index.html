@@ -4,123 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>चेतक FPO - सिद्धपुरा | किसान उत्पादक संगठन</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         /* Basic Reset & Smooth Scroll */
-        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 
-        /* Premium Theme Colors */
+        /* Theme Colors */
         :root {
             --primary-green: #2e7d32;
             --light-green: #e8f5e9;
             --dark-green: #1b5e20;
             --white: #ffffff;
-            --text-dark: #2c3e50;
+            --text-dark: #333333;
             --gray-bg: #f4f7f6;
             --whatsapp: #25D366;
             --instagram: #E1306C;
-            --shadow-sm: 0 4px 10px rgba(0,0,0,0.08);
-            --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
         }
 
-        /* Applying Premium Fonts */
-        body { 
-            background-color: var(--gray-bg); 
-            color: var(--text-dark); 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-            font-family: 'Inter', sans-serif; /* Clean text font */
-        }
-        h1, h2, h3, h4 { 
-            font-family: 'Poppins', sans-serif; /* Bold heading font */
-            color: var(--dark-green);
-        }
+        body { background-color: var(--gray-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
 
         /* Sticky Header */
-        header { background-color: var(--primary-green); color: var(--white); padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm); }
+        header { background-color: var(--primary-green); color: var(--white); padding: 10px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
         .logo-container { display: flex; align-items: center; gap: 15px; }
-        .logo-container img { width: 65px; height: 65px; border-radius: 50%; background-color: white; padding: 3px; object-fit: contain; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .header-title h1 { font-size: 20px; margin-bottom: 2px; color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
-        .header-title p { font-size: 14px; color: #c8e6c9; font-family: 'Inter', sans-serif; }
-        .contact-info { font-size: 14px; text-align: right; font-weight: 600; }
+        .logo-container img { width: 65px; height: 65px; border-radius: 50%; background-color: white; padding: 3px; object-fit: contain; border: 2px solid #fff; }
+        .header-title h1 { font-size: 20px; margin-bottom: 2px; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+        .header-title p { font-size: 14px; color: #c8e6c9; }
+        .contact-info { font-size: 14px; text-align: right; font-weight: bold; }
 
         /* Navigation Menu */
-        nav { background-color: var(--white); text-align: center; padding: 12px 0; box-shadow: var(--shadow-sm); position: sticky; top: 89px; z-index: 999; }
-        nav a { color: var(--dark-green); text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; transition: 0.3s; padding: 6px 12px; border-radius: 6px; }
+        nav { background-color: var(--white); text-align: center; padding: 12px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); position: sticky; top: 85px; z-index: 999; }
+        nav a { color: var(--dark-green); text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 16px; transition: 0.3s; padding: 5px 10px; border-radius: 5px; }
         nav a:hover, nav a:focus { background-color: var(--light-green); color: var(--primary-green); }
 
         /* Main Container */
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
 
         /* Animation Class */
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Hero Section (Restored Old Layout with Premium Colors) */
-        .hero { background: linear-gradient(135deg, var(--dark-green), var(--primary-green)); color: var(--white); border-radius: 12px; overflow: hidden; display: flex; flex-wrap: wrap; box-shadow: var(--shadow-md); }
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, var(--dark-green), var(--primary-green)); color: var(--white); border-radius: 12px; overflow: hidden; display: flex; flex-wrap: wrap; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .hero-text { flex: 1; padding: 40px; min-width: 300px; }
-        .hero-text h2 { font-size: 28px; color: #ffeb3b; margin-bottom: 20px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); line-height: 1.3; }
-        .hero-text p { font-size: 16px; margin-bottom: 15px; line-height: 1.7; color: #e8f5e9; }
+        .hero-text h2 { font-size: 30px; color: #ffeb3b; margin-bottom: 20px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+        .hero-text p { font-size: 16px; margin-bottom: 15px; line-height: 1.7; }
         .hero-text ul { list-style: none; margin-top: 15px; }
-        .hero-text ul li { margin-bottom: 12px; font-size: 15px; background: rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; }
+        .hero-text ul li { margin-bottom: 12px; font-size: 16px; background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 5px; }
         .hero-image { flex: 1; min-width: 300px; background-color: #fff; display: flex; align-items: center; justify-content: center; }
-        .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-left: 4px solid var(--primary-green); }
+        .hero-image img { width: 100%; height: auto; display: block; border-left: 4px solid var(--primary-green); }
 
         /* Section Styling */
-        .section-title { font-size: 28px; margin-bottom: 25px; position: relative; display: inline-block; padding-bottom: 8px; }
-        .section-title::after { content: ''; position: absolute; left: 0; bottom: 0; height: 3px; width: 60%; background-color: var(--primary-green); border-radius: 2px; }
-        .content-box { background-color: var(--white); padding: 35px; border-radius: 12px; box-shadow: var(--shadow-sm); margin-bottom: 40px; border-top: 4px solid var(--primary-green); }
+        .section-title { color: var(--dark-green); font-size: 28px; margin-bottom: 25px; border-bottom: 3px solid var(--primary-green); display: inline-block; padding-bottom: 5px; }
+        .content-box { background-color: var(--white); padding: 35px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 40px; border-top: 5px solid var(--primary-green); }
 
         /* Image Slider for Documents (Automatic & Small Fix) */
         .slider-wrapper { margin-top: 20px; position: relative; overflow: hidden; }
-        .slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 10px; -ms-overflow-style: none; scrollbar-width: none; }
-        .slider-container::-webkit-scrollbar { display: none; }
-        .slider-item { flex: 0 0 260px; max-width: 260px; scroll-snap-align: center; border-radius: 10px; border: 1px solid #c8e6c9; box-shadow: var(--shadow-sm); background: #fff; padding: 10px; transition: 0.3s; }
-        .slider-item img { width: 100%; height: auto; border-radius: 6px; display: block; border: 1px solid #eee; }
-        .slider-item h4 { text-align: center; color: var(--dark-green); margin-top: 12px; font-size: 15px; font-weight: 600; }
+        
+        .slider-container { 
+            display: flex; 
+            overflow-x: auto; /* Keeping this for manual swipe too */
+            scroll-snap-type: x mandatory; 
+            gap: 15px; 
+            padding-bottom: 10px; 
+            /* Hiding scrollbar for cleaner look since it's automatic */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .slider-container::-webkit-scrollbar { display: none; /* Chrome, Safari, Opera */ }
+        
+        /* FIXED: Size reduced and flex adjusted for smooth auto-scroll */
+        .slider-item { 
+            flex: 0 0 280px; /* Small fixed width for items */
+            max-width: 280px;
+            scroll-snap-align: center; 
+            border-radius: 8px; 
+            border: 2px solid var(--light-green); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            background: #fff; 
+            padding: 8px; 
+            transition: 0.3s;
+        }
+        .slider-item img { width: 100%; height: auto; border-radius: 4px; display: block; }
+        .slider-item h4 { text-align: center; color: var(--dark-green); margin-top: 8px; font-size: 16px; }
 
         /* Gallery Grid */
-        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .gallery-card { border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid #c8e6c9; transition: 0.3s; background: #fff; }
-        .gallery-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary-green); }
+        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-card { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid var(--light-green); transition: 0.3s; background: #fff; }
+        .gallery-card:hover { transform: scale(1.02); border-color: var(--primary-green); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .gallery-card img { width: 100%; height: 250px; object-fit: cover; display: block; }
-        .gallery-card img.fix-all-photo { object-fit: contain; background-color: #f8f9fa; }
-        .gallery-card p { padding: 15px; text-align: center; font-weight: 600; color: var(--dark-green); background: var(--light-green); margin: 0; font-family: 'Poppins', sans-serif; }
+        
+        /* FIXED: Pawan's Photo with Certificates Fix applied */
+        .gallery-card img.fix-all-photo { 
+            object-fit: contain; /* Shows full photo without cropping */
+            background-color: #f9f9f9; /* Light bg in case photo is narrow */
+        }
+        
+        .gallery-card p { padding: 12px; text-align: center; font-weight: 600; color: var(--dark-green); background: var(--light-green); margin: 0; }
 
-        /* Action Buttons (Contact with Font Awesome) */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .contact-info-box { background: var(--light-green); padding: 25px; border-radius: 10px; border: 1px solid #c8e6c9; }
-        .contact-info-box p { margin-bottom: 10px; font-size: 15px; }
-        .action-buttons { display: flex; flex-direction: column; gap: 15px; }
-        .btn { padding: 14px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; color: white; display: flex; align-items: center; gap: 12px; font-size: 16px; transition: 0.3s; justify-content: center; }
-        .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); filter: brightness(1.1); }
+        /* Action Buttons (Contact) */
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+        .btn { padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; display: flex; align-items: center; gap: 10px; font-size: 16px; transition: 0.3s; justify-content: center; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .btn-whatsapp { background-color: var(--whatsapp); }
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-call { background-color: #1976D2; }
         .btn-email { background-color: #D32F2F; }
 
         /* Footer */
-        footer { background-color: var(--dark-green); color: var(--white); text-align: center; padding: 35px 20px 25px; margin-top: 40px; }
-        .developer-credit { font-size: 15px; margin-top: 20px; color: #e8f5e9; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; display: inline-block; font-family: 'Inter', sans-serif; }
-        .developer-credit a { color: #ffeb3b; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        footer { background-color: var(--dark-green); color: var(--white); text-align: center; padding: 25px 20px; margin-top: 40px; }
+        .developer-credit { font-size: 15px; margin-top: 15px; color: #e8f5e9; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; display: inline-block; }
+        .developer-credit a { color: #ffeb3b; text-decoration: none; font-weight: bold; transition: 0.3s; }
         .developer-credit a:hover { color: #fff; text-decoration: underline; }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .header-top { flex-direction: column; text-align: center; gap: 10px; }
-            nav { top: 125px; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px 5px; }
-            nav a { margin: 5px; font-size: 14px; padding: 6px; }
+            .header-top { flex-direction: column; text-align: center; }
+            .logo-container { flex-direction: column; margin-bottom: 10px; gap: 5px; }
+            .contact-info { margin-top: 10px; }
+            nav { top: 130px; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px 5px; }
+            nav a { margin: 5px; font-size: 14px; padding: 5px; }
             .hero-text { padding: 25px; }
-            .contact-grid { grid-template-columns: 1fr; }
+            /* Mobile slider item size */
             .slider-item { flex: 0 0 240px; max-width: 240px; } 
+            .content-box { padding: 20px; }
         }
     </style>
 </head>
@@ -136,8 +143,8 @@
                 </div>
             </div>
             <div class="contact-info">
-                <i class="fa-solid fa-phone"></i> +91 7727966057<br>
-                <i class="fa-solid fa-envelope"></i> chetakfposidhpura@gmail.com
+                📞 +91 7727966057<br>
+                ✉️ chetakfposidhpura@gmail.com
             </div>
         </div>
     </header>
@@ -154,16 +161,16 @@
         
         <div class="hero fade-in" id="home">
             <div class="hero-text">
-                <h2><i class="fa-regular fa-newspaper"></i> प्रतापगढ़ में 'चेतक FPO' की शुरुआत</h2>
-                <p>नाबार्ड के सहयोग से सिद्धपुरा में ‘चेतक किसान उत्पादक संगठन’ (FPO) का गठन, कलेक्टर डॉ. अंजलि राजोरिया ने स्वीकृति पत्र सौंपा।</p>
-                <p><strong>मुख्य फोकस:</strong> दुग्ध उत्पादन बढ़ाना, वैज्ञानिक पशुपालन और बेहतर मार्केटिंग व्यवस्था।</p>
-                <p style="margin-top: 15px; font-weight: 600;">किसानों को लाभ:</p>
+                <h2>📰 प्रतापगढ़ में 'चेतक FPO' की शुरुआत</h2>
+                <p>▶️ नाबार्ड के सहयोग से सिद्धपुरा में ‘चेतक किसान उत्पादक संगठन’ (FPO) का गठन, कलेक्टर डॉ. अंजलि राजोरिया ने स्वीकृति पत्र सौंपा।</p>
+                <p>▶️ मुख्य फोकस: दुग्ध उत्पादन बढ़ाना, वैज्ञानिक पशुपालन और बेहतर मार्केटिंग व्यवस्था।</p>
+                <p>▶️ किसानों को लाभ:</p>
                 <ul>
-                    <li><i class="fa-solid fa-seedling" style="color: #a5d6a7;"></i> खाद-बीज सस्ते दर पर (सामूहिक खरीद)</li>
-                    <li><i class="fa-solid fa-sack-dollar" style="color: #a5d6a7;"></i> बिचौलियों से मुक्ति, सीधे बिक्री से ज्यादा मुनाफा</li>
-                    <li><i class="fa-solid fa-building-columns" style="color: #a5d6a7;"></i> बैंक ऋण, सब्सिडी और योजनाओं तक आसान पहुंच</li>
+                    <li>🌱 खाद-बीज सस्ते दर पर (सामूहिक खरीद)</li>
+                    <li>💰 बिचौलियों से मुक्ति, सीधे बिक्री से ज्यादा मुनाफा</li>
+                    <li>🏦 बैंक ऋण, सब्सिडी और सरकारी योजनाओं तक आसान पहुंच</li>
                 </ul>
-                <p style="margin-top: 20px; font-weight: 600; color: #ffeb3b;"><i class="fa-solid fa-bullseye"></i> उद्देश्य: किसानों को संगठित कर आय बढ़ाना और उन्हें उद्यमी बनाना।</p>
+                <p style="margin-top: 20px; font-weight: bold; color: #c8e6c9;">▶️ उद्देश्य: किसानों को संगठित कर आय बढ़ाना और उन्हें उद्यमी बनाना।</p>
             </div>
             <div class="hero-image">
                 <img src="collector-meeting.jpeg" alt="District Collector Meeting">
@@ -172,40 +179,40 @@
 
         <div class="content-box fade-in" id="about">
             <h2 class="section-title">हमारे बारे में</h2>
-            <p style="font-size: 16px;"><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong> किसानों का एक समर्पित संगठन है। हमारा उद्देश्य किसानों को सशक्त बनाना, उन्हें आधुनिक तकनीक से जोड़ना और उनकी आय में वृद्धि करना है।</p>
+            <p><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong> किसानों का एक समर्पित संगठन है। हमारा उद्देश्य किसानों को सशक्त बनाना, उन्हें आधुनिक तकनीक से जोड़ना और उनकी आय में वृद्धि करना है।</p>
             <br>
-            <div style="background-color: var(--light-green); padding: 25px; border-left: 5px solid var(--primary-green); border-radius: 8px;">
-                <h3 style="margin-bottom: 12px; font-size: 20px;"><i class="fa-solid fa-handshake-angle"></i> वित्तीय और तकनीकी सहयोग (Supported By):</h3>
-                <p style="margin-bottom: 8px;"><i class="fa-solid fa-circle-check" style="color: var(--primary-green);"></i> <strong>नाबार्ड (NABARD):</strong> National Bank for Agriculture and Rural Development, Jaipur (Raj.)</p>
-                <p><i class="fa-solid fa-circle-check" style="color: var(--primary-green);"></i> <strong>POPI:</strong> Arunodaya Sarveshwari Lok Kalyan Samiti, Ujjain (M.P.)</p>
+            <div style="background-color: var(--light-green); padding: 20px; border-left: 6px solid var(--primary-green); border-radius: 8px;">
+                <h3 style="color: var(--dark-green); margin-bottom: 12px;">🤝 वित्तीय और तकनीकी सहयोग (Supported By):</h3>
+                <p>🟢 <strong>नाबार्ड (NABARD):</strong> National Bank for Agriculture and Rural Development, Jaipur (Raj.)</p>
+                <p>🟢 <strong>POPI:</strong> Arunodaya Sarveshwari Lok Kalyan Samiti, Ujjain (M.P.)</p>
             </div>
         </div>
 
         <div class="content-box fade-in" id="documents">
             <h2 class="section-title">संस्था के आधिकारिक दस्तावेज़</h2>
-            <p style="margin-bottom: 15px; color: var(--text-muted);">चेतक FPO एक पूर्णतः पंजीकृत और प्रमाणित संस्था है। (दस्तावेज़ अपने आप स्लाइड हो रहे हैं):</p>
+            <p style="margin-bottom: 15px;">चेतक FPO एक पूर्णतः पंजीकृत और प्रमाणित संस्था है।:</p>
             
             <div class="slider-wrapper">
                 <div class="slider-container" id="autoSlider">
                     <div class="slider-item">
-                        <img src="doc-reg.jpeg" alt="पंजीकरण">
-                        <h4>📄 पंजीकरण प्रमाणपत्र</h4>
+                        <img src="doc-reg.jpeg" alt="FSSAI लाइसेंस">
+                        <h4>🍽️ FSSAI लाइसेंस</h4>
                     </div>
                     <div class="slider-item">
                         <img src="doc-pan.jpeg" alt="पैन कार्ड">
                         <h4>💳 पैन कार्ड (PAN)</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-udyam.jpeg" alt="उद्यम">
+                        <img src="doc-udyam.jpeg" alt="उद्यम प्रमाणपत्र">
                         <h4>🏢 उद्यम प्रमाणपत्र</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-gst.jpeg" alt="GST">
+                        <img src="doc-gst.jpeg" alt="GST प्रमाणपत्र">
                         <h4>🧾 GST प्रमाणपत्र</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-fssai.jpeg" alt="FSSAI">
-                        <h4>🍽️ FSSAI लाइसेंस</h4>
+                        <img src="doc-fssai.jpeg" alt="पंजीकरण प्रमाणपत्र">
+                        <h4>📄 पंजीकरण प्रमाणपत्र</h4>
                     </div>
                 </div>
             </div>
@@ -215,7 +222,7 @@
             <h2 class="section-title">फोटो गैलरी</h2>
             <div class="grid-gallery">
                 <div class="gallery-card"><img src="gallery-office-1.jpeg" alt="Office Activity"><p>कार्यालय गतिविधि</p></div>
-                <div class="gallery-card"><img src="gallery-office-2.jpeg" alt="Office Setup"><p>चेतक FPO ऑफिस</p></div>
+                <div class="gallery-card"><img src="gallery-office-2.jpeg" alt="Office Setup"><p>चेतक FPO </p></div>
                 <div class="gallery-card"><img src="gallery-office-3.jpeg" alt="Team Discussion"><p>सदस्यों के साथ चर्चा</p></div>
                 <div class="gallery-card"><img src="gallery-farmer-meeting.jpeg" alt="Farmer Engagement"><p>किसान बैठक व जागरूकता</p></div>
                 
@@ -233,32 +240,31 @@
 
         <div class="content-box fade-in" id="contact">
             <h2 class="section-title">संपर्क करें</h2>
-            <div class="contact-grid">
-                <div>
-                    <h3 style="margin-bottom: 20px;"><i class="fa-solid fa-location-dot"></i> कार्यालय का पता:</h3>
-                    <div class="contact-info-box">
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: var(--dark-green); margin-bottom: 15px;">📍 कार्यालय का पता:</h3>
+                    <div style="background: var(--light-green); padding: 20px; border-radius: 8px; border: 1px solid #c8e6c9;">
                         <p><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong></p>
-                        <hr style="border: 0; border-top: 1px solid #a5d6a7; margin: 10px 0;">
                         <p>गाँव बावड़ी के पास, वार्ड नं. 2, पाटीदार मोहल्ला</p>
                         <p>ग्राम सिद्धपुरा, जिला प्रतापगढ़</p>
                         <p>राजस्थान – 312616</p>
                     </div>
                 </div>
                 
-                <div>
-                    <h3 style="margin-bottom: 20px;"><i class="fa-solid fa-link"></i> हमसे जुड़ें:</h3>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: var(--dark-green); margin-bottom: 15px;">🔗 हमसे जुड़ें (Click to Connect):</h3>
                     <div class="action-buttons">
                         <a href="https://wa.me/917727966057?text=नमस्ते%20Chetak%20FPO!%20मुझे%20संस्था%20के%20बारे%20में%20जानकारी%20चाहिए।" target="_blank" class="btn btn-whatsapp">
-                            <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> WhatsApp पर मैसेज करें
+                            💬 WhatsApp पर मैसेज करें
                         </a>
                         <a href="https://www.instagram.com/officevaishnavpavan?igsh=dzFleWVyOXpkdnFr" target="_blank" class="btn btn-instagram">
-                            <i class="fa-brands fa-instagram" style="font-size: 20px;"></i> Instagram पर फॉलो करें
+                            📸 Instagram पर फॉलो करें
                         </a>
                         <a href="tel:+917727966057" class="btn btn-call">
-                            <i class="fa-solid fa-phone-volume" style="font-size: 18px;"></i> +91 7727966057 पर कॉल करें
+                            📞 +91 7727966057 पर कॉल करें
                         </a>
                         <a href="mailto:chetakfposidhpura@gmail.com" class="btn btn-email">
-                            <i class="fa-regular fa-envelope" style="font-size: 18px;"></i> ईमेल भेजें
+                            ✉️ ईमेल भेजें
                         </a>
                     </div>
                 </div>
@@ -268,18 +274,17 @@
     </div>
 
     <footer>
-        <h2 style="color: white; margin-bottom: 10px;">चेतक FPO, सिद्धपुरा</h2>
-        <p>&copy; 2026 All Rights Reserved.</p>
+        <p>&copy; 2026 Chetak FPO Co-operative Society Ltd., Siddhpura. All Rights Reserved.</p>
         <p style="font-size: 14px; margin-top: 8px; color: #a5d6a7;">Developed for the Empowerment of Farmers.</p>
         
         <div class="developer-credit">
-            <i class="fa-solid fa-code"></i> Designed & Developed by <strong>Vishal Vaishnav</strong> | <a href="https://wa.me/916367180391" target="_blank"><i class="fa-brands fa-whatsapp"></i> +91 6367180391</a>
+            💻 Designed & Developed by <strong>Vishal Vaishnav</strong> | <a href="https://wa.me/916367180391" target="_blank">💬 +91 6367180391</a>
         </div>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Fade-in Animation
+            // 1. Fade-in on Scroll Animation
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -292,24 +297,30 @@
                 observer.observe(el);
             });
 
-            // Automatic Slider Logic
+            // 2. Automatic Slider Logic (FIXED: Added this part)
             const slider = document.getElementById('autoSlider');
             if (slider) {
                 let scrollInterval;
                 const startAutoScroll = () => {
                     scrollInterval = setInterval(() => {
+                        // Check if at the end of scroll
                         if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) {
+                            // Reset smoothly to start
                             slider.scrollTo({ left: 0, behavior: 'smooth' });
                         } else {
-                            const itemWidth = slider.querySelector('.slider-item').offsetWidth + 15;
+                            // Scroll by one item width + gap
+                            const itemWidth = slider.querySelector('.slider-item').offsetWidth + 15; // 15 is gap
                             slider.scrollBy({ left: itemWidth, behavior: 'smooth' });
                         }
-                    }, 3000); 
+                    }, 3000); // Changed to every 3 seconds
                 };
 
                 const stopAutoScroll = () => clearInterval(scrollInterval);
+
+                // Start initially
                 startAutoScroll();
 
+                // Pause on interaction (mouse or touch)
                 slider.addEventListener('mouseover', stopAutoScroll);
                 slider.addEventListener('mouseout', startAutoScroll);
                 slider.addEventListener('touchstart', stopAutoScroll);
