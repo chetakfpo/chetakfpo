@@ -58,17 +58,27 @@
         .section-title { color: var(--dark-green); font-size: 28px; margin-bottom: 25px; border-bottom: 3px solid var(--primary-green); display: inline-block; padding-bottom: 5px; }
         .content-box { background-color: var(--white); padding: 35px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 40px; border-top: 5px solid var(--primary-green); }
 
-        /* Documents Section */
-        .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .doc-card { background-color: var(--light-green); padding: 20px; border-radius: 8px; text-align: center; text-decoration: none; color: var(--dark-green); font-weight: bold; border: 1px solid #c8e6c9; transition: 0.3s; display: block; }
-        .doc-card:hover { transform: translateY(-5px); background-color: var(--primary-green); color: var(--white); box-shadow: 0 5px 15px rgba(46,125,50,0.3); }
-        .doc-card span { font-size: 30px; display: block; margin-bottom: 10px; }
+        /* Image Slider for Documents (Modern) */
+        .slider-wrapper { margin-top: 20px; }
+        .slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 15px; scrollbar-width: thin; scrollbar-color: var(--primary-green) var(--light-green); }
+        .slider-container::-webkit-scrollbar { height: 8px; }
+        .slider-container::-webkit-scrollbar-track { background: var(--light-green); border-radius: 10px; }
+        .slider-container::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 10px; }
+        
+        .slider-item { flex: 0 0 85%; max-width: 500px; scroll-snap-align: center; border-radius: 8px; border: 2px solid var(--light-green); box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #fff; padding: 10px; }
+        .slider-item img { width: 100%; height: auto; border-radius: 4px; display: block; }
+        .slider-item h4 { text-align: center; color: var(--dark-green); margin-top: 10px; font-size: 18px; }
+        .slider-hint { text-align: center; color: #666; font-size: 14px; margin-top: 10px; font-weight: bold; }
 
         /* Gallery Grid */
         .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .gallery-card { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid var(--light-green); transition: 0.3s; background: #fff; }
         .gallery-card:hover { transform: scale(1.02); border-color: var(--primary-green); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .gallery-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        
+        /* Pawan's Photo Fix */
+        .gallery-card img.fix-head { object-position: top center; }
+
         .gallery-card p { padding: 12px; text-align: center; font-weight: 600; color: var(--dark-green); background: var(--light-green); margin: 0; }
 
         /* Action Buttons (Contact) */
@@ -82,6 +92,11 @@
 
         /* Footer */
         footer { background-color: var(--dark-green); color: var(--white); text-align: center; padding: 25px 20px; margin-top: 40px; }
+        
+        /* Developer Credit Styling */
+        .developer-credit { font-size: 15px; margin-top: 15px; color: #e8f5e9; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; display: inline-block; }
+        .developer-credit a { color: #ffeb3b; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .developer-credit a:hover { color: #fff; text-decoration: underline; }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
@@ -91,6 +106,7 @@
             nav { top: 130px; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px 5px; }
             nav a { margin: 5px; font-size: 14px; padding: 5px; }
             .hero-text { padding: 25px; }
+            .slider-item { flex: 0 0 95%; } 
         }
     </style>
 </head>
@@ -142,7 +158,7 @@
 
         <div class="content-box fade-in" id="about">
             <h2 class="section-title">हमारे बारे में</h2>
-            <p><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong> किसानों का एक समर्पित संगठन है। हमारा उद्देश्य किसानों को सशक्त बनाना, उन्हें आधुनिक तकनीक से जोड़ना और उनकी आय में वृद्धि करना है।</p>
+            <p><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong> किसानों का एक समर्पित संगठन है। हमारा उद्देश्य किसानों को सशक्त बनाना, उन्हें आधुनिक तकनीक से जोड़ना और उनकी आय में वृद्धि करना है।</p>
             <br>
             <div style="background-color: var(--light-green); padding: 20px; border-left: 6px solid var(--primary-green); border-radius: 8px;">
                 <h3 style="color: var(--dark-green); margin-bottom: 12px;">🤝 वित्तीय और तकनीकी सहयोग (Supported By):</h3>
@@ -153,23 +169,32 @@
 
         <div class="content-box fade-in" id="documents">
             <h2 class="section-title">संस्था के आधिकारिक दस्तावेज़</h2>
-            <p style="margin-bottom: 20px;">चेतक FPO एक पूर्णतः पंजीकृत और प्रमाणित संस्था है। दस्तावेज़ देखने के लिए क्लिक करें:</p>
-            <div class="doc-grid">
-                <a href="registration-certificate.pdf" target="_blank" class="doc-card">
-                    <span>📄</span> पंजीकरण प्रमाणपत्र
-                </a>
-                <a href="pan-card.pdf" target="_blank" class="doc-card">
-                    <span>💳</span> पैन कार्ड (PAN)
-                </a>
-                <a href="udyam-certificate.pdf" target="_blank" class="doc-card">
-                    <span>🏢</span> उद्यम प्रमाणपत्र
-                </a>
-                <a href="gst-certificate.pdf" target="_blank" class="doc-card">
-                    <span>🧾</span> GST प्रमाणपत्र
-                </a>
-                <a href="fssai-license.pdf" target="_blank" class="doc-card">
-                    <span>🍽️</span> FSSAI लाइसेंस
-                </a>
+            <p>चेतक FPO एक पूर्णतः पंजीकृत और प्रमाणित संस्था है। नीचे दिए गए दस्तावेज़ों को देखने के लिए बाएँ-दाएँ खिसकाएँ:</p>
+            
+            <div class="slider-wrapper">
+                <div class="slider-container">
+                    <div class="slider-item">
+                        <img src="doc-reg.jpeg" alt="पंजीकरण प्रमाणपत्र">
+                        <h4>📄 पंजीकरण प्रमाणपत्र</h4>
+                    </div>
+                    <div class="slider-item">
+                        <img src="doc-pan.jpeg" alt="पैन कार्ड">
+                        <h4>💳 पैन कार्ड (PAN)</h4>
+                    </div>
+                    <div class="slider-item">
+                        <img src="doc-udyam.jpeg" alt="उद्यम प्रमाणपत्र">
+                        <h4>🏢 उद्यम प्रमाणपत्र</h4>
+                    </div>
+                    <div class="slider-item">
+                        <img src="doc-gst.jpeg" alt="GST प्रमाणपत्र">
+                        <h4>🧾 GST प्रमाणपत्र</h4>
+                    </div>
+                    <div class="slider-item">
+                        <img src="doc-fssai.jpeg" alt="FSSAI लाइसेंस">
+                        <h4>🍽️ FSSAI लाइसेंस</h4>
+                    </div>
+                </div>
+                <p class="slider-hint">👆 (सर्टिफिकेट देखने के लिए बाएँ-दाएँ स्वाइप करें ↔️)</p>
             </div>
         </div>
 
@@ -177,10 +202,15 @@
             <h2 class="section-title">फोटो गैलरी</h2>
             <div class="grid-gallery">
                 <div class="gallery-card"><img src="gallery-office-1.jpeg" alt="Office Activity"><p>कार्यालय गतिविधि</p></div>
-                <div class="gallery-card"><img src="gallery-office-2.jpeg" alt="Office Setup"><p>चेतक FPO </p></div>
+                <div class="gallery-card"><img src="gallery-office-2.jpeg" alt="Office Setup"><p>चेतक FPO ऑफिस</p></div>
                 <div class="gallery-card"><img src="gallery-office-3.jpeg" alt="Team Discussion"><p>सदस्यों के साथ चर्चा</p></div>
                 <div class="gallery-card"><img src="gallery-farmer-meeting.jpeg" alt="Farmer Engagement"><p>किसान बैठक व जागरूकता</p></div>
-                <div class="gallery-card"><img src="certificates-photo.jpeg" alt="FPO Certificates"><p>प्रमाणपत्रों के साथ</p></div>
+                
+                <div class="gallery-card">
+                    <img src="certificates-photo.jpeg" class="fix-head" alt="FPO Certificates">
+                    <p>प्रमाणपत्रों के साथ</p>
+                </div>
+                
                 <div class="gallery-card"><img src="fpo-banner.jpeg" alt="FPO Banner"><p>संस्था का आधिकारिक बैनर</p></div>
                 <div class="gallery-card"><img src="activity-poster.jpeg" alt="Activities Poster"><p>एफपीओ की मुख्य विशेषताएं</p></div>
                 <div class="gallery-card"><img src="gallery-news.jpeg" alt="News and Activities"><p>मीडिया कवरेज</p></div>
@@ -226,6 +256,10 @@
     <footer>
         <p>&copy; 2026 Chetak FPO Co-operative Society Ltd., Siddhpura. All Rights Reserved.</p>
         <p style="font-size: 14px; margin-top: 8px; color: #a5d6a7;">Developed for the Empowerment of Farmers.</p>
+        
+        <div class="developer-credit">
+            💻 Designed & Developed by <strong>Vishal Vaishnav</strong> | <a href="https://wa.me/916367180391" target="_blank">💬 +91 6367180391</a>
+        </div>
     </footer>
 
     <script>
