@@ -20,150 +20,148 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* Basic Reset & Smooth Scroll */
+        /* Base & Reset */
         html { scroll-behavior: smooth; scroll-padding-top: 140px; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Premium Theme Colors */
+        /* Premium FPO Color Palette */
         :root {
-            --primary-green: #2e7d32;
+            --primary-green: #1b5e20;
             --light-green: #e8f5e9;
-            --dark-green: #1b5e20;
+            --accent-green: #4caf50;
+            --dark-bg: #113d15;
             --white: #ffffff;
             --text-dark: #2c3e50;
-            --gray-bg: #f4f7f6;
+            --gray-bg: #f8f9fa;
             --whatsapp: #25D366;
-            --instagram: #E1306C;
-            --shadow-sm: 0 4px 10px rgba(0,0,0,0.08);
-            --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
+            --shadow-sm: 0 4px 10px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        /* Applying Premium Fonts */
-        body { 
-            background-color: var(--gray-bg); 
-            color: var(--text-dark); 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-            font-family: 'Inter', sans-serif; 
-        }
-        h1, h2, h3, h4 { 
-            font-family: 'Poppins', sans-serif; 
-            color: var(--dark-green);
-        }
+        body { background-color: var(--gray-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--primary-green); }
 
-        /* Sticky Header */
-        header { background-color: var(--primary-green); color: var(--white); padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm); }
-        .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        /* Professional Header */
+        header { background-color: var(--white); border-bottom: 3px solid var(--primary-green); padding: 10px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm); }
+        .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 15px; }
         .logo-container { display: flex; align-items: center; gap: 15px; }
-        .logo-container img { width: 65px; height: 65px; border-radius: 50%; background-color: white; padding: 3px; object-fit: contain; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .header-title h1 { font-size: 20px; margin-bottom: 2px; color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
-        .header-title p { font-size: 14px; color: #c8e6c9; font-family: 'Inter', sans-serif; }
-        .contact-info { font-size: 14px; text-align: right; font-weight: 600; }
+        .logo-container img { width: 70px; height: 70px; border-radius: 50%; object-fit: contain; border: 2px solid var(--primary-green); padding: 2px; }
+        .header-title h1 { font-size: 22px; margin-bottom: 2px; color: var(--primary-green); }
+        .header-title p { font-size: 14px; color: #555; font-weight: 500; }
+        
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .contact-info { font-size: 14px; text-align: right; font-weight: 600; color: #444; }
+        
+        /* Language Toggle Button (Premium Touch) */
+        .lang-btn { display: flex; align-items: center; gap: 5px; background: var(--light-green); border: 1px solid var(--accent-green); padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; color: var(--primary-green); cursor: pointer; transition: 0.3s; }
+        .lang-btn:hover { background: var(--primary-green); color: var(--white); }
 
-        /* LIVE NOTICE BOARD (NEWS TICKER) CSS */
-        .news-ticker {
-            background-color: var(--dark-green);
-            color: #ffeb3b;
-            padding: 8px 20px;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            position: sticky;
-            top: 89px; 
-            z-index: 999;
-            overflow: hidden;
-            white-space: nowrap;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            border-bottom: 1px solid #113d15;
-        }
-        .ticker-content { display: inline-block; animation: tickerScroll 25s linear infinite; }
+        /* Modern News Ticker */
+        .news-ticker { background-color: var(--primary-green); color: #fff; padding: 10px 20px; font-size: 14px; font-weight: 500; position: sticky; top: 93px; z-index: 999; overflow: hidden; white-space: nowrap; display: flex; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .news-label { background: #ffeb3b; color: #000; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 12px; margin-right: 15px; z-index: 2; position: relative; }
+        .ticker-content { display: inline-block; animation: tickerScroll 25s linear infinite; padding-left: 20px; }
         .ticker-content:hover { animation-play-state: paused; }
         @keyframes tickerScroll { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
 
         /* Navigation Menu */
-        nav { background-color: var(--white); text-align: center; padding: 12px 0; box-shadow: var(--shadow-sm); position: sticky; top: 125px; z-index: 998; }
-        nav a { color: var(--dark-green); text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; transition: 0.3s; padding: 6px 12px; border-radius: 6px; }
-        nav a:hover, nav a:focus { background-color: var(--light-green); color: var(--primary-green); }
+        nav { background-color: var(--dark-bg); text-align: center; padding: 10px 0; position: sticky; top: 132px; z-index: 998; box-shadow: var(--shadow-sm); }
+        nav a { color: var(--white); text-decoration: none; margin: 0 15px; font-weight: 500; font-size: 15px; transition: 0.3s; padding: 6px 15px; border-radius: 20px; display: inline-block; }
+        nav a:hover, nav a:focus { background-color: rgba(255,255,255,0.2); }
 
-        /* Main Container */
+        /* Container & Animations */
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-
-        /* Animation Class */
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* Hero Section */
-        .hero { background: linear-gradient(135deg, var(--dark-green), var(--primary-green)); color: var(--white); border-radius: 12px; overflow: hidden; display: flex; flex-wrap: wrap; box-shadow: var(--shadow-md); }
-        .hero-text { flex: 1; padding: 40px; min-width: 300px; }
-        .hero-text h2 { font-size: 28px; color: #ffeb3b; margin-bottom: 20px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); line-height: 1.3; }
-        .hero-text p { font-size: 16px; margin-bottom: 15px; line-height: 1.7; color: #e8f5e9; }
-        .hero-text ul { list-style: none; margin-top: 15px; }
-        .hero-text ul li { margin-bottom: 12px; font-size: 15px; background: rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; }
+        .hero { background: var(--white); border-radius: 15px; overflow: hidden; display: flex; flex-wrap: wrap; box-shadow: var(--shadow-md); border: 1px solid #eaeaea; }
+        .hero-text { flex: 1; padding: 50px 40px; min-width: 300px; background: linear-gradient(to right, #ffffff, #f1f8f1); }
+        .hero-text h2 { font-size: 28px; color: var(--primary-green); margin-bottom: 20px; line-height: 1.3; }
+        .hero-text p { font-size: 16px; margin-bottom: 20px; color: #555; }
+        .feature-list { list-style: none; margin-top: 25px; }
+        .feature-list li { margin-bottom: 15px; font-size: 15px; display: flex; align-items: center; gap: 12px; font-weight: 500; color: #333; }
+        .feature-list i { color: var(--accent-green); background: var(--light-green); padding: 8px; border-radius: 50%; font-size: 14px; }
         
-        .hero-image { flex: 1; min-width: 300px; background-color: var(--dark-green); display: flex; align-items: center; justify-content: center; }
-        .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-left: 4px solid var(--primary-green); }
+        .hero-image { flex: 1; min-width: 300px; background-color: var(--white); display: flex; align-items: center; justify-content: center; position: relative; }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-left: 5px solid var(--primary-green); }
 
         /* Section Styling */
-        .section-title { font-size: 28px; margin-bottom: 25px; position: relative; display: inline-block; padding-bottom: 8px; }
-        .section-title::after { content: ''; position: absolute; left: 0; bottom: 0; height: 3px; width: 60%; background-color: var(--primary-green); border-radius: 2px; }
-        .content-box { background-color: var(--white); padding: 35px; border-radius: 12px; box-shadow: var(--shadow-sm); margin-bottom: 40px; border-top: 4px solid var(--primary-green); }
+        .section-title { font-size: 28px; margin-bottom: 30px; text-align: center; position: relative; padding-bottom: 10px; }
+        .section-title::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; height: 3px; width: 80px; background-color: var(--accent-green); border-radius: 2px; }
+        .content-box { background-color: var(--white); padding: 40px; border-radius: 15px; box-shadow: var(--shadow-sm); margin-bottom: 50px; border: 1px solid #eaeaea; }
 
-        /* Image Slider for Documents */
-        .slider-wrapper { margin-top: 20px; position: relative; overflow: hidden; }
-        .slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 10px; -ms-overflow-style: none; scrollbar-width: none; }
+        /* Documents Auto Slider */
+        .slider-wrapper { margin-top: 30px; position: relative; overflow: hidden; }
+        .slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 15px; -ms-overflow-style: none; scrollbar-width: none; }
         .slider-container::-webkit-scrollbar { display: none; }
-        .slider-item { flex: 0 0 260px; max-width: 260px; scroll-snap-align: center; border-radius: 10px; border: 1px solid #c8e6c9; box-shadow: var(--shadow-sm); background: #fff; padding: 10px; transition: 0.3s; }
-        .slider-item img { width: 100%; height: auto; border-radius: 6px; display: block; border: 1px solid #eee; cursor: pointer; }
-        .slider-item h4 { text-align: center; color: var(--dark-green); margin-top: 12px; font-size: 15px; font-weight: 600; }
+        .slider-item { flex: 0 0 250px; max-width: 250px; scroll-snap-align: center; border-radius: 12px; border: 1px solid #eee; box-shadow: var(--shadow-sm); background: #fff; padding: 12px; transition: 0.3s; }
+        .slider-item:hover { transform: translateY(-5px); border-color: var(--accent-green); box-shadow: var(--shadow-md); }
+        .slider-item img { width: 100%; height: auto; border-radius: 6px; display: block; cursor: pointer; }
+        .slider-item h4 { text-align: center; color: var(--text-dark); margin-top: 15px; font-size: 15px; }
 
         /* Gallery Grid */
-        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .gallery-card { border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid #c8e6c9; transition: 0.3s; background: #fff; }
-        .gallery-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary-green); }
-        .gallery-card img { width: 100%; height: 250px; object-fit: cover; display: block; cursor: pointer; }
+        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        .gallery-card { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid #eee; transition: 0.3s; background: #fff; }
+        .gallery-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--accent-green); }
+        .gallery-card img { width: 100%; height: 220px; object-fit: cover; display: block; cursor: pointer; transition: 0.5s; }
+        .gallery-card:hover img { transform: scale(1.05); }
         .gallery-card img.fix-all-photo { object-fit: contain; background-color: #f8f9fa; }
-        .gallery-card p { padding: 15px; text-align: center; font-weight: 600; color: var(--dark-green); background: var(--light-green); margin: 0; font-family: 'Poppins', sans-serif; }
+        .gallery-card p { padding: 15px; text-align: center; font-weight: 500; color: #444; background: var(--white); margin: 0; border-top: 1px solid #eee; }
 
-        /* LIGHTBOX POPUP CSS */
-        .lightbox { display: none; position: fixed; z-index: 2000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); backdrop-filter: blur(5px); }
-        .lightbox-content { margin: auto; display: block; max-width: 90%; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease; }
-        #lightbox-caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 15px 0; font-size: 18px; font-family: 'Poppins', sans-serif; }
+        /* LIGHTBOX POPUP */
+        .lightbox { display: none; position: fixed; z-index: 2000; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); backdrop-filter: blur(8px); }
+        .lightbox-content { margin: auto; display: block; max-width: 90%; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.6); animation: zoomIn 0.3s ease; }
+        #lightbox-caption { margin: auto; display: block; width: 80%; text-align: center; color: #fff; padding: 15px 0; font-size: 18px; font-weight: 500; }
         .lightbox-close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .lightbox-close:hover { color: var(--primary-green); }
-        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .lightbox-close:hover { color: var(--accent-green); }
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-        /* BACK TO TOP BUTTON CSS */
-        #backToTopBtn { display: none; position: fixed; bottom: 30px; right: 30px; z-index: 99; font-size: 20px; border: none; outline: none; background-color: var(--primary-green); color: white; cursor: pointer; width: 50px; height: 50px; border-radius: 50%; box-shadow: var(--shadow-md); transition: 0.3s; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; }
-        #backToTopBtn.show { opacity: 1; visibility: visible; }
-        #backToTopBtn:hover { background-color: var(--dark-green); transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
-
-        /* Action Buttons */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .contact-info-box { background: var(--light-green); padding: 25px; border-radius: 10px; border: 1px solid #c8e6c9; }
-        .contact-info-box p { margin-bottom: 10px; font-size: 15px; }
+        /* Contact Section & Google Map */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .map-container { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid #eee; height: 100%; min-height: 250px; }
         .action-buttons { display: flex; flex-direction: column; gap: 15px; }
-        .btn { padding: 14px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; color: white; display: flex; align-items: center; gap: 12px; font-size: 16px; transition: 0.3s; justify-content: center; }
+        .btn { padding: 15px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; color: white; display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 16px; transition: 0.3s; }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); filter: brightness(1.1); }
         .btn-whatsapp { background-color: var(--whatsapp); }
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-call { background-color: #1976D2; }
         .btn-email { background-color: #D32F2F; }
 
+        /* BACK TO TOP BUTTON */
+        #backToTopBtn { display: none; position: fixed; bottom: 30px; right: 30px; z-index: 99; font-size: 20px; border: none; background-color: var(--primary-green); color: white; cursor: pointer; width: 50px; height: 50px; border-radius: 50%; box-shadow: var(--shadow-md); transition: 0.3s; align-items: center; justify-content: center; }
+        #backToTopBtn.show { display: flex; animation: fadeIn 0.3s; }
+        #backToTopBtn:hover { background-color: var(--dark-bg); transform: translateY(-5px); }
+
         /* Footer */
-        footer { background-color: var(--dark-green); color: var(--white); text-align: center; padding: 35px 20px 25px; margin-top: 40px; }
-        .developer-credit { font-size: 15px; margin-top: 20px; color: #e8f5e9; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; display: inline-block; font-family: 'Inter', sans-serif; }
+        footer { background-color: var(--dark-bg); color: var(--white); text-align: center; padding: 50px 20px 30px; margin-top: 60px; }
+        .footer-logo { width: 80px; border-radius: 50%; margin-bottom: 15px; border: 2px solid rgba(255,255,255,0.2); }
+        .developer-credit { font-size: 14px; margin-top: 30px; color: #a5d6a7; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
         .developer-credit a { color: #ffeb3b; text-decoration: none; font-weight: 600; transition: 0.3s; }
         .developer-credit a:hover { color: #fff; text-decoration: underline; }
 
-        /* Mobile Adjustments */
+        /* Mobile Adjustments (100% Fix for Collector Image) */
         @media (max-width: 768px) {
-            .header-top { flex-direction: column; text-align: center; gap: 10px; }
-            .news-ticker { top: 125px; }
-            nav { top: 160px; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px 5px; }
+            .header-top { flex-direction: column; gap: 15px; text-align: center; }
+            .header-actions { flex-direction: column; gap: 10px; }
+            .news-ticker { top: 155px; flex-direction: column; text-align: center; padding: 5px; }
+            .news-label { margin-bottom: 5px; margin-right: 0; display: inline-block; }
+            nav { top: 215px; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px 5px; }
             nav a { margin: 5px; font-size: 14px; padding: 6px; }
-            .hero-text { padding: 25px; }
+            .hero-text { padding: 30px 20px; }
+            
+            /* FIXED: Perfect Mobile Scaling for Hero Image */
             .hero-image { background-color: var(--white); }
-            .hero-image img { height: auto; object-fit: contain !important; display: block !important; width: 100% !important; }
+            .hero-image img { 
+                width: 100% !important; 
+                height: auto !important; 
+                object-fit: contain !important; 
+                display: block !important; 
+                border-left: none; 
+                border-top: 4px solid var(--primary-green); 
+            }
+            
             .contact-grid { grid-template-columns: 1fr; }
+            .map-container { height: 250px; }
             .slider-item { flex: 0 0 240px; max-width: 240px; } 
             #backToTopBtn { bottom: 20px; right: 20px; width: 45px; height: 45px; font-size: 18px; }
         }
@@ -176,45 +174,51 @@
             <div class="logo-container">
                 <img src="logo.jpeg" alt="Chetak FPO Logo">
                 <div class="header-title">
-                    <h1>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</h1>
+                    <h1>चेतक फार्मर्स प्रोड्यूसर्स को-ऑपरेटिव लि.</h1>
                     <p>ग्राम सिद्धपुरा, जिला प्रतापगढ़ (राज.)</p>
                 </div>
             </div>
-            <div class="contact-info">
-                <i class="fa-solid fa-phone"></i> +91 7727966057<br>
-                <i class="fa-solid fa-envelope"></i> chetakfposidhpura@gmail.com
+            <div class="header-actions">
+                <div class="contact-info">
+                    <i class="fa-solid fa-phone" style="color: var(--primary-green);"></i> +91 7727966057<br>
+                    <i class="fa-solid fa-envelope" style="color: var(--primary-green);"></i> chetakfposidhpura@gmail.com
+                </div>
+                <button class="lang-btn" title="Change Language">
+                    <i class="fa-solid fa-language"></i> अ / A
+                </button>
             </div>
         </div>
     </header>
 
     <div class="news-ticker">
+        <span class="news-label">ताज़ा ख़बर</span>
         <div class="ticker-content">
-            📢 <strong>महत्वपूर्ण सूचना:</strong> चेतक FPO की वेबसाइट पर आपका स्वागत है। | ✅ उत्तम गुणवत्ता के बीज और खाद रियायती दरों पर उपलब्ध हैं। | 📞 किसी भी जानकारी या जुड़ने के लिए 7727966057 पर संपर्क करें।
+            चेतक FPO की आधिकारिक वेबसाइट पर आपका स्वागत है। | ✅ उत्तम गुणवत्ता के बीज और खाद रियायती दरों पर उपलब्ध हैं। | 📞 किसानों को आत्मनिर्भर बनाने की दिशा में एक कदम।
         </div>
     </div>
 
     <nav>
-        <a href="#home">मुख्य पृष्ठ</a>
-        <a href="#about">हमारे बारे में</a>
-        <a href="#documents">दस्तावेज़</a>
-        <a href="#gallery">गैलरी</a>
-        <a href="#contact">संपर्क करें</a>
+        <a href="#home"><i class="fa-solid fa-house"></i> होम</a>
+        <a href="#about"><i class="fa-solid fa-circle-info"></i> परिचय</a>
+        <a href="#documents"><i class="fa-solid fa-file-shield"></i> दस्तावेज़</a>
+        <a href="#gallery"><i class="fa-solid fa-images"></i> गैलरी</a>
+        <a href="#contact"><i class="fa-solid fa-address-book"></i> संपर्क</a>
     </nav>
 
     <div class="container">
         
         <div class="hero fade-in" id="home">
             <div class="hero-text">
-                <h2><i class="fa-regular fa-newspaper"></i> प्रतापगढ़ में 'चेतक FPO' की शुरुआत</h2>
-                <p>नाबार्ड के सहयोग से सिद्धपुरा में ‘चेतक किसान उत्पादक संगठन’ (FPO) का गठन, कलेक्टर डॉ. अंजलि राजोरिया ने स्वीकृति पत्र सौंपा।</p>
-                <p><strong>मुख्य फोकस:</strong> दुग्ध उत्पादन बढ़ाना, वैज्ञानिक पशुपालन और बेहतर मार्केटिंग व्यवस्था।</p>
-                <p style="margin-top: 15px; font-weight: 600;">किसानों को लाभ:</p>
-                <ul>
-                    <li><i class="fa-solid fa-seedling" style="color: #a5d6a7;"></i> खाद-बीज सस्ते दर पर (सामूहिक खरीद)</li>
-                    <li><i class="fa-solid fa-sack-dollar" style="color: #a5d6a7;"></i> बिचौलियों से मुक्ति, सीधे बिक्री से ज्यादा मुनाफा</li>
-                    <li><i class="fa-solid fa-building-columns" style="color: #a5d6a7;"></i> बैंक ऋण, सब्सिडी और योजनाओं तक आसान पहुंच</li>
+                <h2><i class="fa-regular fa-newspaper"></i> प्रतापगढ़ में 'चेतक FPO' की शानदार शुरुआत</h2>
+                <p>नाबार्ड (NABARD) के विशेष सहयोग से सिद्धपुरा में गठित, प्रतापगढ़ के किसानों को समर्पित एक आधुनिक संगठन। कलेक्टर डॉ. अंजलि राजोरिया ने स्वीकृति पत्र सौंपा।</p>
+                
+                <p style="margin-top: 15px; font-weight: 600; color: var(--primary-green);">किसानों को लाभ:</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-seedling"></i> खेती के लिए उन्नत खाद-बीज सस्ती दरों पर</li>
+                    <li><i class="fa-solid fa-sack-dollar"></i> बिचौलियों से मुक्ति, सीधे बाजार से जुड़ाव</li>
+                    <li><i class="fa-solid fa-hand-holding-dollar"></i> सरकारी सब्सिडी और बैंक ऋण में सहायता</li>
                 </ul>
-                <p style="margin-top: 20px; font-weight: 600; color: #ffeb3b;"><i class="fa-solid fa-bullseye"></i> उद्देश्य: किसानों को संगठित कर आय बढ़ाना और उन्हें उद्यमी बनाना।</p>
+                <p style="margin-top: 20px; font-weight: 600; color: #d32f2f;"><i class="fa-solid fa-bullseye"></i> उद्देश्य: किसानों को संगठित कर आय बढ़ाना और उन्हें उद्यमी बनाना।</p>
             </div>
             <div class="hero-image">
                 <img src="collector-meeting.jpeg" alt="District Collector Meeting">
@@ -222,19 +226,28 @@
         </div>
 
         <div class="content-box fade-in" id="about">
-            <h2 class="section-title">हमारे बारे में</h2>
-            <p style="font-size: 16px;"><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong> किसानों का एक समर्पित संगठन है। हमारा उद्देश्य किसानों को सशक्त बनाना, उन्हें आधुनिक तकनीक से जोड़ना और उनकी आय में वृद्धि करना है।</p>
-            <br>
-            <div style="background-color: var(--light-green); padding: 25px; border-left: 5px solid var(--primary-green); border-radius: 8px;">
-                <h3 style="margin-bottom: 12px; font-size: 20px;"><i class="fa-solid fa-handshake-angle"></i> वित्तीय और तकनीकी सहयोग (Supported By):</h3>
-                <p style="margin-bottom: 8px;"><i class="fa-solid fa-circle-check" style="color: var(--primary-green);"></i> <strong>नाबार्ड (NABARD):</strong> National Bank for Agriculture and Rural Development, Jaipur (Raj.)</p>
-                <p><i class="fa-solid fa-circle-check" style="color: var(--primary-green);"></i> <strong>POPI:</strong> Arunodaya Sarveshwari Lok Kalyan Samiti, Ujjain (M.P.)</p>
+            <h2 class="section-title">संस्था का परिचय</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 16px;">
+                <strong>चेतक फार्मर्स प्रोड्यूसर्स को-ऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong> किसानों का एक समर्पित और पंजीकृत संगठन है। हमारा मुख्य उद्देश्य किसानों को तकनीकी रूप से उन्नत, आर्थिक रूप से सशक्त और पूर्णतः आत्मनिर्भर बनाना है।
+            </p>
+            
+            <div style="background-color: var(--light-green); padding: 25px; border-radius: 10px; border: 1px solid #c8e6c9; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; text-align: center;">
+                <div>
+                    <i class="fa-solid fa-building-columns" style="font-size: 30px; color: var(--primary-green); margin-bottom: 10px;"></i>
+                    <h4 style="color: #333;">वित्तीय सहयोगी</h4>
+                    <p style="font-weight: 600; color: var(--primary-green);">नाबार्ड (NABARD)</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-users-gear" style="font-size: 30px; color: var(--primary-green); margin-bottom: 10px;"></i>
+                    <h4 style="color: #333;">मार्गदर्शक संस्था (POPI)</h4>
+                    <p style="font-weight: 600; color: var(--primary-green);">अरुणोदय सर्वेश्वरी समिति</p>
+                </div>
             </div>
         </div>
 
         <div class="content-box fade-in" id="documents">
-            <h2 class="section-title">संस्था के आधिकारिक दस्तावेज़</h2>
-            <p style="margin-bottom: 15px; color: var(--text-muted);">चेतक FPO एक पूर्णतः पंजीकृत और प्रमाणित संस्था है। (दस्तावेज़ देखने के लिए उन पर क्लिक करें):</p>
+            <h2 class="section-title">आधिकारिक दस्तावेज़</h2>
+            <p style="text-align: center; margin-bottom: 20px;">हमारी संस्था पूर्णतः पंजीकृत और भारत सरकार द्वारा प्रमाणित है। (दस्तावेज़ बड़ा करने के लिए क्लिक करें)</p>
             
             <div class="slider-wrapper">
                 <div class="slider-container" id="autoSlider">
@@ -275,8 +288,8 @@
                     <p>CEO PAVAN VAISHNAV प्रमाणपत्रों के साथ</p>
                 </div>
                 
-                <div class="gallery-card"><img src="fpo-banner.jpeg" alt="संस्था का आधिकारिक बैनर" class="zoomable-img"><p>संस्था का आधिकारिक बैनर</p></div>
-                <div class="gallery-card"><img src="activity-poster.jpeg" alt="एफपीओ की मुख्य विशेषताएं" class="zoomable-img"><p>एफपीओ की मुख्य विशेषताएं</p></div>
+                <div class="gallery-card"><img src="fpo-banner.jpeg" alt="संस्था का आधिकारिक बैनर" class="zoomable-img"><p>संस्था का बैनर</p></div>
+                <div class="gallery-card"><img src="activity-poster.jpeg" alt="मुख्य विशेषताएं" class="zoomable-img"><p>मुख्य विशेषताएं</p></div>
                 <div class="gallery-card"><img src="gallery-news.jpeg" alt="मीडिया कवरेज" class="zoomable-img"><p>मीडिया कवरेज</p></div>
                 <div class="gallery-card"><img src="gallery-office-old.jpeg" alt="कार्यालय उद्घाटन समारोह" class="zoomable-img"><p>कार्यालय उद्घाटन समारोह</p></div>
             </div>
@@ -285,31 +298,25 @@
         <div class="content-box fade-in" id="contact">
             <h2 class="section-title">संपर्क करें</h2>
             <div class="contact-grid">
-                <div>
-                    <h3 style="margin-bottom: 20px;"><i class="fa-solid fa-location-dot"></i> कार्यालय का पता:</h3>
-                    <div class="contact-info-box">
-                        <p><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong></p>
-                        <hr style="border: 0; border-top: 1px solid #a5d6a7; margin: 10px 0;">
-                        <p>गाँव बावड़ी के पास, वार्ड नं. 2, पाटीदार मोहल्ला</p>
-                        <p>ग्राम सिद्धपुरा, जिला प्रतापगढ़</p>
-                        <p>राजस्थान – 312616</p>
-                    </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps?q=Siddhpura,Pratapgarh,Rajasthan&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 
-                <div>
-                    <h3 style="margin-bottom: 20px;"><i class="fa-solid fa-link"></i> हमसे जुड़ें:</h3>
+                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div style="background: var(--light-green); padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #c8e6c9;">
+                        <h4 style="margin-bottom: 10px; font-size: 18px;"><i class="fa-solid fa-location-dot"></i> पता:</h4>
+                        <p>ग्राम सिद्धपुरा, वार्ड नं. 2, पाटीदार मोहल्ला,<br>जिला प्रतापगढ़, राजस्थान – 312616</p>
+                    </div>
+                    
                     <div class="action-buttons">
                         <a href="https://wa.me/917727966057?text=नमस्ते%20Chetak%20FPO!%20मुझे%20संस्था%20के%20बारे%20में%20जानकारी%20चाहिए।" target="_blank" class="btn btn-whatsapp">
-                            <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> WhatsApp पर मैसेज करें
+                            <i class="fa-brands fa-whatsapp" style="font-size: 22px;"></i> WhatsApp करें
                         </a>
                         <a href="https://www.instagram.com/officevaishnavpavan?igsh=dzFleWVyOXpkdnFr" target="_blank" class="btn btn-instagram">
-                            <i class="fa-brands fa-instagram" style="font-size: 20px;"></i> Instagram पर फॉलो करें
+                            <i class="fa-brands fa-instagram" style="font-size: 22px;"></i> Instagram
                         </a>
                         <a href="tel:+917727966057" class="btn btn-call">
-                            <i class="fa-solid fa-phone-volume" style="font-size: 18px;"></i> +91 7727966057 पर कॉल करें
-                        </a>
-                        <a href="mailto:chetakfposidhpura@gmail.com" class="btn btn-email">
-                            <i class="fa-regular fa-envelope" style="font-size: 18px;"></i> ईमेल भेजें
+                            <i class="fa-solid fa-phone" style="font-size: 20px;"></i> कॉल करें
                         </a>
                     </div>
                 </div>
@@ -319,108 +326,53 @@
     </div>
 
     <footer>
-        <h2 style="color: white; margin-bottom: 10px;">चेतक FPO, सिद्धपुरा</h2>
-        <p>&copy; 2026 All Rights Reserved.</p>
-        <p style="font-size: 14px; margin-top: 8px; color: #a5d6a7;">Developed for the Empowerment of Farmers.</p>
+        <img src="logo.jpeg" alt="Logo" class="footer-logo">
+        <h2 style="color: white; margin-bottom: 5px;">चेतक FPO, सिद्धपुरा</h2>
+        <p style="color: #ccc;">किसानों की प्रगति, हमारा संकल्प।</p>
         
         <div class="developer-credit">
-            <i class="fa-solid fa-code"></i> Designed & Developed by <strong>Vishal Vaishnav</strong> | <a href="https://wa.me/916367180391" target="_blank"><i class="fa-brands fa-whatsapp"></i> +91 6367180391</a>
+            <i class="fa-solid fa-laptop-code"></i> Designed & Developed by <strong>Vishal Vaishnav</strong><br>
+            <a href="https://wa.me/916367180391" target="_blank" style="display: inline-block; margin-top: 5px;">
+                <i class="fa-brands fa-whatsapp"></i> +91 6367180391
+            </a>
         </div>
     </footer>
 
     <div id="lightboxModal" class="lightbox">
-        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-close">×</span>
         <img class="lightbox-content" id="lightboxImg">
         <div id="lightbox-caption"></div>
     </div>
 
-    <button id="backToTopBtn" title="सबसे ऊपर जाएँ">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
+    <button id="backToTopBtn" title="सबसे ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // 1. Fade-in Animation
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in').forEach((el) => {
-                observer.observe(el);
-            });
+            const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach((el) => { observer.observe(el); });
 
             // 2. Automatic Slider Logic
             const slider = document.getElementById('autoSlider');
             if (slider) {
                 let scrollInterval;
-                const startAutoScroll = () => {
-                    scrollInterval = setInterval(() => {
-                        if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) {
-                            slider.scrollTo({ left: 0, behavior: 'smooth' });
-                        } else {
-                            const itemWidth = slider.querySelector('.slider-item').offsetWidth + 15;
-                            slider.scrollBy({ left: itemWidth, behavior: 'smooth' });
-                        }
-                    }, 3000); 
-                };
-
+                const startAutoScroll = () => { scrollInterval = setInterval(() => { if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) { slider.scrollTo({ left: 0, behavior: 'smooth' }); } else { const itemWidth = slider.querySelector('.slider-item').offsetWidth + 20; slider.scrollBy({ left: itemWidth, behavior: 'smooth' }); } }, 3000); };
                 const stopAutoScroll = () => clearInterval(scrollInterval);
                 startAutoScroll();
-
-                slider.addEventListener('mouseover', stopAutoScroll);
-                slider.addEventListener('mouseout', startAutoScroll);
-                slider.addEventListener('touchstart', stopAutoScroll);
-                slider.addEventListener('touchend', startAutoScroll);
+                slider.addEventListener('mouseover', stopAutoScroll); slider.addEventListener('mouseout', startAutoScroll);
+                slider.addEventListener('touchstart', stopAutoScroll); slider.addEventListener('touchend', startAutoScroll);
             }
 
-            // 3. Lightbox Logic
-            const modal = document.getElementById("lightboxModal");
-            const modalImg = document.getElementById("lightboxImg");
-            const captionText = document.getElementById("lightbox-caption");
-            const closeBtn = document.getElementsByClassName("lightbox-close")[0];
-            const images = document.querySelectorAll('.zoomable-img');
+            // 3. Lightbox (Zoom) Logic
+            const modal = document.getElementById("lightboxModal"), modalImg = document.getElementById("lightboxImg"), captionText = document.getElementById("lightbox-caption");
+            document.querySelectorAll('.zoomable-img').forEach(img => { img.addEventListener('click', function() { modal.style.display = "block"; modalImg.src = this.src; captionText.innerHTML = this.alt; }); });
+            document.querySelector(".lightbox-close").onclick = function() { modal.style.display = "none"; }
+            window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 
-            images.forEach(img => {
-                img.addEventListener('click', function() {
-                    modal.style.display = "block";
-                    modalImg.src = this.src;
-                    captionText.innerHTML = this.alt;
-                });
-            });
-
-            // Close Lightbox on 'X' click
-            closeBtn.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            // Close Lightbox on outside click
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-
-            // 4. Back to Top Logic
+            // 4. Back to Top Button Logic
             const backToTopBtn = document.getElementById("backToTopBtn");
-
-            window.onscroll = function() {
-                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                    backToTopBtn.classList.add("show");
-                } else {
-                    backToTopBtn.classList.remove("show");
-                }
-            };
-
-            backToTopBtn.addEventListener("click", function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            });
+            window.onscroll = function() { if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { backToTopBtn.classList.add("show"); } else { backToTopBtn.classList.remove("show"); } };
+            backToTopBtn.addEventListener("click", function() { window.scrollTo({ top: 0, behavior: "smooth" }); });
         });
     </script>
 
