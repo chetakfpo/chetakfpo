@@ -389,10 +389,21 @@
         .gallery-card:hover img { 
             transform: scale(1.05); 
         }
+        
+        /* Media & Fix All Photo CSS */
         .gallery-card img.fix-all-photo { 
             object-fit: contain; 
             background-color: #f8f9fa; 
         }
+        
+        /* Height adjusted specifically for Newspaper clippings */
+        .gallery-card img.news-img {
+            height: 300px;
+            object-fit: contain;
+            background-color: #fff;
+            padding: 10px;
+        }
+
         .gallery-card p { 
             padding: 15px; 
             text-align: center; 
@@ -620,6 +631,9 @@
                 height: 45px; 
                 font-size: 18px; 
             }
+            .gallery-card img.news-img {
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -649,7 +663,7 @@
     <div class="news-ticker">
         <span class="news-label">Notification</span>
         <div class="ticker-content">
-            प्रतापगढ़ जिले के सिद्धपुरा गांव में ‘चेतक FPO’ के कार्यालय का शुभारंभ, किसानों को मिलेगा सीधा लाभ | ▶️ प्रतापगढ़ जिले में किसान सशक्तिकरण की दिशा में एक महत्वपूर्ण कदम उठाते हुए 23 मार्च को ‘चेतक किसान उत्पादक संगठन (FPO)’ के कार्यालय का विधिवत शुभारंभ किया गया। इस अवसर पर बड़ी संख्या में ग्रामीण किसान उपस्थित रहे। | ▶️ कार्यक्रम में नाबार्ड (NABARD) से श्री निखिल कुमार (GM, Regional Office, जयपुर) मुख्य अतिथि के रूप में उपस्थित रहे। उनके साथ नाबार्ड के DDM श्री महेंद्र हुड्डा भी उपस्थित रहे। | ▶️ चेतक FPO के CEO पवन वैष्णव, अकाउंटेंट भरत पाटीदार, अध्यक्ष विनोद पाटीदार, उपाध्यक्ष सहित FPO के सभी बोर्ड ऑफ डायरेक्टर्स इस कार्यक्रम में मौजूद रहे। | ▶️ कार्यक्रम के दौरान वक्ताओं ने बताया कि FPO के माध्यम से किसानों को बाजार से सीधा जुड़ाव, बेहतर मूल्य, और खाद-बीज व कृषि सेवाओं में सुविधा मिलेगी। | ▶️ उपस्थित किसानों ने इस पहल का स्वागत करते हुए इसे क्षेत्र में कृषि विकास और आत्मनिर्भरता की दिशा में महत्वपूर्ण कदम बताया। | 👉 इस अवसर पर सभी ने मिलकर FPO को मजबूत बनाने और अधिक से अधिक किसानों को जोड़ने का संकल्प लिया।
+            प्रतापगढ़ जिले के सिद्धपुरा गांव में ‘चेतक FPO’ के कार्यालय का शुभारंभ, किसानों को मिलेगा सीधा लाभ | ▶️ प्रतापगढ़ जिले में किसान सशक्तिकरण की दिशा में एक महत्वपूर्ण कदम उठाते हुए 23 मार्च को ‘चेतक किसान उत्पादक संगठन (FPO)’ के कार्यालय का विधिवत शुभारंभ किया गया। इस अवसर पर बड़ी संख्या में ग्रामीण किसान उपस्थित रहे। | ▶️ कार्यक्रम में नाबार्ड (NABARD) से श्री निखिल कुमार (GM, Regional Office, जयपुर) मुख्य अतिथि के रूप में उपस्थित रहे। उनके साथ नाबार्ड के DDM श्री महेंद्र हुड्डा भी उपस्थित रहे। | ▶️ चेतक FPO के CEO पवन वैष्णव, अकाउंटेंट भरत पाटीदार, अध्यक्ष विनोद पाटीदार, उपाध्यक्ष किशोर पाटीदार सहित FPO के सभी बोर्ड ऑफ डायरेक्टर्स इस कार्यक्रम में मौजूद रहे। | ▶️ कार्यक्रम के दौरान वक्ताओं ने बताया कि FPO के माध्यम से किसानों को बाजार से सीधा जुड़ाव, बेहतर मूल्य, और खाद-बीज व कृषि सेवाओं में सुविधा मिलेगी। | ▶️ उपस्थित किसानों ने इस पहल का स्वागत करते हुए इसे क्षेत्र में कृषि विकास और आत्मनिर्भरता की दिशा में महत्वपूर्ण कदम बताया। | 👉 इस अवसर पर सभी ने मिलकर FPO को मजबूत बनाने और अधिक से अधिक किसानों को जोड़ने का संकल्प लिया।
         </div>
     </div>
 
@@ -657,6 +671,7 @@
         <a href="#home"><i class="fa-solid fa-house"></i> होम</a>
         <a href="#about"><i class="fa-solid fa-circle-info"></i> परिचय</a>
         <a href="#documents"><i class="fa-solid fa-file-shield"></i> दस्तावेज़</a>
+        <a href="#media"><i class="fa-regular fa-newspaper"></i> मीडिया</a>
         <a href="#gallery"><i class="fa-solid fa-images"></i> गैलरी</a>
         <a href="#contact"><i class="fa-solid fa-address-book"></i> संपर्क</a>
     </nav>
@@ -731,6 +746,26 @@
             </div>
         </div>
 
+        <div class="content-box fade-in" id="media">
+            <h2 class="section-title">मीडिया कवरेज</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #555;">समाचार पत्रों और मीडिया चैनलों में चेतक FPO की ख़बरें (ख़बर को पढ़ने के लिए क्लिक करें)</p>
+            
+            <div class="grid-gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="gallery-card">
+                    <img src="news-bhaskar.jpeg" alt="दैनिक भास्कर कवरेज" class="zoomable-img news-img">
+                    <p>दैनिक भास्कर</p>
+                </div>
+                <div class="gallery-card">
+                    <img src="news-navjyoti.jpeg" alt="दैनिक नवज्योति कवरेज" class="zoomable-img news-img">
+                    <p>दैनिक नवज्योति</p>
+                </div>
+                <div class="gallery-card">
+                    <img src="news-gtv.jpeg" alt="GTV राजस्थान न्यूज़" class="zoomable-img news-img">
+                    <p>GTV राजस्थान न्यूज़</p>
+                </div>
+            </div>
+        </div>
+
         <div class="content-box fade-in" id="gallery">
             <h2 class="section-title">फोटो गैलरी</h2>
             <div class="grid-gallery">
@@ -763,10 +798,6 @@
                     <p>मुख्य विशेषताएं</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallery-news.jpeg" alt="मीडिया कवरेज" class="zoomable-img">
-                    <p>मीडिया कवरेज</p>
-                </div>
-                <div class="gallery-card">
                     <img src="gallery-office-old.jpeg" alt="कार्यालय उद्घाटन समारोह" class="zoomable-img">
                     <p>कार्यालय उद्घाटन समारोह</p>
                 </div>
@@ -777,7 +808,7 @@
             <h2 class="section-title">संपर्क करें</h2>
             <div class="contact-grid">
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d348.85017084337454!2d74.76660814778224!3d24.093562501924954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1774331725177!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://maps.app.goo.gl/5Rckcqkk1S4jNv64A" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
