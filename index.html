@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="hi" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>चेतक FPO - सिद्धपुरा | किसान उत्पादक संगठन</title>
 
     <link rel="icon" href="logo.jpeg" type="image/jpeg">
-
     <meta property="og:title" content="चेतक FPO - सिद्धपुरा | किसान उत्पादक संगठन">
     <meta property="og:description" content="किसानों की प्रगति, हमारा संकल्प। प्रतापगढ़ के किसानों को ज्ञान, आधुनिक तकनीक और बाजार से जोड़ने वाली पंजीकृत सहकारी संस्था।">
     <meta property="og:image" content="https://chetakfpo.github.io/chetakfpo/logo.jpeg">
@@ -16,631 +15,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        /* Base & Reset */
-        html { 
-            scroll-behavior: smooth; 
-            scroll-padding-top: 140px; 
-        }
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-
-        /* Premium FPO Color Palette */
-        :root {
-            --primary-green: #1b5e20;
-            --light-green: #e8f5e9;
-            --accent-green: #4caf50;
-            --dark-bg: #113d15;
-            --white: #ffffff;
-            --text-dark: #2c3e50;
-            --gray-bg: #f8f9fa;
-            --whatsapp: #25D366;
-            --shadow-sm: 0 4px 10px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        body { 
-            background-color: var(--gray-bg); 
-            color: var(--text-dark); 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-            font-family: 'Inter', sans-serif; 
-        }
-        
-        h1, h2, h3, h4 { 
-            font-family: 'Poppins', sans-serif; 
-            color: var(--primary-green); 
-        }
-
-        /* Professional Header */
-        header { 
-            background-color: var(--white); 
-            border-bottom: 3px solid var(--primary-green); 
-            padding: 10px 20px; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: var(--shadow-sm); 
-        }
-        .header-top { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            flex-wrap: wrap; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            gap: 15px; 
-        }
-        .logo-container { 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-        }
-        .logo-container img { 
-            width: 70px; 
-            height: 70px; 
-            border-radius: 50%; 
-            object-fit: contain; 
-            border: 2px solid var(--primary-green); 
-            padding: 2px; 
-        }
-        .header-title h1 { 
-            font-size: 22px; 
-            margin-bottom: 2px; 
-            color: var(--primary-green); 
-        }
-        .header-title p { 
-            font-size: 14px; 
-            color: #555; 
-            font-weight: 500; 
-        }
-        
-        .header-actions { 
-            display: flex; 
-            align-items: center; 
-            gap: 20px; 
-        }
-        .contact-info { 
-            font-size: 14px; 
-            text-align: right; 
-            font-weight: 600; 
-            color: #444; 
-        }
-        
-        /* Language Toggle Button */
-        .lang-btn { 
-            display: flex; 
-            align-items: center; 
-            gap: 5px; 
-            background: var(--light-green); 
-            border: 1px solid var(--accent-green); 
-            padding: 5px 12px; 
-            border-radius: 20px; 
-            font-size: 13px; 
-            font-weight: 600; 
-            color: var(--primary-green); 
-            cursor: pointer; 
-            transition: 0.3s; 
-        }
-        .lang-btn:hover { 
-            background: var(--primary-green); 
-            color: var(--white); 
-        }
-
-        /* Modern News Ticker */
-        .news-ticker { 
-            background-color: var(--primary-green); 
-            color: #fff; 
-            padding: 10px 20px; 
-            font-size: 14px; 
-            font-weight: 500; 
-            position: sticky; 
-            top: 93px; 
-            z-index: 999; 
-            overflow: hidden; 
-            white-space: nowrap; 
-            display: flex; 
-            align-items: center; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-        }
-        .news-label { 
-            background: #ffeb3b; 
-            color: #000; 
-            padding: 2px 10px; 
-            border-radius: 4px; 
-            font-weight: bold; 
-            font-size: 12px; 
-            margin-right: 15px; 
-            z-index: 2; 
-            position: relative; 
-        }
-        .ticker-content { 
-            display: inline-block; 
-            animation: tickerScroll 55s linear infinite; 
-            padding-left: 20px; 
-        }
-        .ticker-content:hover { 
-            animation-play-state: paused; 
-        }
-        
-        @keyframes tickerScroll { 
-            0% { transform: translateX(100vw); } 
-            100% { transform: translateX(-100%); } 
-        }
-
-        /* Navigation Menu */
-        nav { 
-            background-color: var(--dark-bg); 
-            text-align: center; 
-            padding: 10px 0; 
-            position: sticky; 
-            top: 132px; 
-            z-index: 998; 
-            box-shadow: var(--shadow-sm); 
-        }
-        nav a { 
-            color: var(--white); 
-            text-decoration: none; 
-            margin: 0 15px; 
-            font-weight: 500; 
-            font-size: 15px; 
-            transition: 0.3s; 
-            padding: 6px 15px; 
-            border-radius: 20px; 
-            display: inline-block; 
-        }
-        nav a:hover, nav a:focus { 
-            background-color: rgba(255,255,255,0.2); 
-        }
-
-        /* Container & Animations */
-        .container { 
-            max-width: 1200px; 
-            margin: 40px auto; 
-            padding: 0 20px; 
-        }
-        .fade-in { 
-            opacity: 0; 
-            transform: translateY(30px); 
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
-        }
-        .fade-in.visible { 
-            opacity: 1; 
-            transform: translateY(0); 
-        }
-
-        /* Hero Section */
-        .hero { 
-            background: var(--white); 
-            border-radius: 15px; 
-            overflow: hidden; 
-            display: flex; 
-            flex-wrap: wrap; 
-            box-shadow: var(--shadow-md); 
-            border: 1px solid #eaeaea; 
-        }
-        .hero-text { 
-            flex: 1; 
-            padding: 50px 40px; 
-            min-width: 300px; 
-            background: linear-gradient(to right, #ffffff, #f1f8f1); 
-        }
-        .hero-text h2 { 
-            font-size: 28px; 
-            color: var(--primary-green); 
-            margin-bottom: 20px; 
-            line-height: 1.3; 
-        }
-        .hero-text p { 
-            font-size: 16px; 
-            margin-bottom: 20px; 
-            color: #555; 
-        }
-        
-        .feature-list { 
-            list-style: none; 
-            margin-top: 25px; 
-        }
-        .feature-list li { 
-            margin-bottom: 15px; 
-            font-size: 15px; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            font-weight: 500; 
-            color: #333; 
-        }
-        .feature-list i { 
-            color: var(--accent-green); 
-            background: var(--light-green); 
-            padding: 8px; 
-            border-radius: 50%; 
-            font-size: 14px; 
-        }
-        
-        .hero-image { 
-            flex: 1; 
-            min-width: 300px; 
-            background-color: var(--white); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            position: relative; 
-        }
-        .hero-image img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            display: block; 
-            border-left: 5px solid var(--primary-green); 
-        }
-
-        /* Section Styling */
-        .section-title { 
-            font-size: 28px; 
-            margin-bottom: 30px; 
-            text-align: center; 
-            position: relative; 
-            padding-bottom: 10px; 
-        }
-        .section-title::after { 
-            content: ''; 
-            position: absolute; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            bottom: 0; 
-            height: 3px; 
-            width: 80px; 
-            background-color: var(--accent-green); 
-            border-radius: 2px; 
-        }
-        .content-box { 
-            background-color: var(--white); 
-            padding: 40px; 
-            border-radius: 15px; 
-            box-shadow: var(--shadow-sm); 
-            margin-bottom: 50px; 
-            border: 1px solid #eaeaea; 
-        }
-
-        /* Documents Auto Slider */
-        .slider-wrapper { 
-            margin-top: 30px; 
-            position: relative; 
-            overflow: hidden; 
-        }
-        .slider-container { 
-            display: flex; 
-            overflow-x: auto; 
-            scroll-snap-type: x mandatory; 
-            gap: 20px; 
-            padding-bottom: 15px; 
-            -ms-overflow-style: none; 
-            scrollbar-width: none; 
-        }
-        .slider-container::-webkit-scrollbar { 
-            display: none; 
-        }
-        .slider-item { 
-            flex: 0 0 250px; 
-            max-width: 250px; 
-            scroll-snap-align: center; 
-            border-radius: 12px; 
-            border: 1px solid #eee; 
-            box-shadow: var(--shadow-sm); 
-            background: #fff; 
-            padding: 12px; 
-            transition: 0.3s; 
-        }
-        .slider-item:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--accent-green); 
-            box-shadow: var(--shadow-md); 
-        }
-        .slider-item img { 
-            width: 100%; 
-            height: auto; 
-            border-radius: 6px; 
-            display: block; 
-            cursor: pointer; 
-        }
-        .slider-item h4 { 
-            text-align: center; 
-            color: var(--text-dark); 
-            margin-top: 15px; 
-            font-size: 15px; 
-        }
-
-        /* Gallery Grid */
-        .grid-gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-            margin-top: 30px; 
-        }
-        .gallery-card { 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: var(--shadow-sm); 
-            border: 1px solid #eee; 
-            transition: 0.3s; 
-            background: #fff; 
-        }
-        .gallery-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: var(--shadow-md); 
-            border-color: var(--accent-green); 
-        }
-        .gallery-card img { 
-            width: 100%; 
-            height: 220px; 
-            object-fit: cover; 
-            display: block; 
-            cursor: pointer; 
-            transition: 0.5s; 
-        }
-        .gallery-card:hover img { 
-            transform: scale(1.05); 
-        }
-        
-        /* Media & Fix All Photo CSS */
-        .gallery-card img.fix-all-photo { 
-            object-fit: contain; 
-            background-color: #f8f9fa; 
-        }
-        
-        /* Height adjusted specifically for Newspaper clippings */
-        .gallery-card img.news-img {
-            height: 300px;
-            object-fit: contain;
-            background-color: #fff;
-            padding: 10px;
-        }
-
-        .gallery-card p { 
-            padding: 15px; 
-            text-align: center; 
-            font-weight: 500; 
-            color: #444; 
-            background: var(--white); 
-            margin: 0; 
-            border-top: 1px solid #eee; 
-        }
-
-        /* =========================================
-           FIXED LIGHTBOX POPUP CSS (CENTERED)
-           ========================================= */
-        .lightbox { 
-            display: none; /* Changed to flex via JS when active */
-            position: fixed; 
-            z-index: 9999; /* Highest priority */
-            left: 0; 
-            top: 0; 
-            width: 100vw; /* Full Viewport Width */
-            height: 100vh; /* Full Viewport Height */
-            background-color: rgba(0,0,0,0.95); 
-            backdrop-filter: blur(8px); 
-            align-items: center; /* Vertical Center */
-            justify-content: center; /* Horizontal Center */
-            flex-direction: column;
-        }
-        .lightbox-content { 
-            max-width: 90vw; 
-            max-height: 80vh; 
-            border-radius: 8px; 
-            box-shadow: 0 0 30px rgba(0,0,0,0.6); 
-            animation: zoomIn 0.3s ease; 
-            object-fit: contain;
-        }
-        #lightbox-caption { 
-            width: 80%; 
-            text-align: center; 
-            color: #fff; 
-            padding-top: 15px; 
-            font-size: 18px; 
-            font-weight: 500; 
-        }
-        .lightbox-close { 
-            position: absolute; 
-            top: 20px; 
-            right: 35px; 
-            color: #fff; 
-            font-size: 40px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            transition: 0.3s; 
-            z-index: 10000;
-        }
-        .lightbox-close:hover { 
-            color: var(--accent-green); 
-        }
-        @keyframes zoomIn { 
-            from { transform: scale(0.9); opacity: 0; } 
-            to { transform: scale(1); opacity: 1; } 
-        }
-
-        /* Contact Section & Google Map */
-        .contact-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 40px; 
-        }
-        .map-container { 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: var(--shadow-sm); 
-            border: 1px solid #eee; 
-            height: 100%; 
-            min-height: 250px; 
-        }
-        .action-buttons { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px; 
-        }
-        .btn { 
-            padding: 15px 20px; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            color: white; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 12px; 
-            font-size: 16px; 
-            transition: 0.3s; 
-        }
-        .btn:hover { 
-            transform: translateY(-3px); 
-            box-shadow: var(--shadow-md); 
-            filter: brightness(1.1); 
-        }
-        .btn-whatsapp { background-color: var(--whatsapp); }
-        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-        .btn-call { background-color: #1976D2; }
-        .btn-email { background-color: #D32F2F; }
-
-        /* BACK TO TOP BUTTON */
-        #backToTopBtn { 
-            display: none; 
-            position: fixed; 
-            bottom: 30px; 
-            right: 30px; 
-            z-index: 99; 
-            font-size: 20px; 
-            border: none; 
-            background-color: var(--primary-green); 
-            color: white; 
-            cursor: pointer; 
-            width: 50px; 
-            height: 50px; 
-            border-radius: 50%; 
-            box-shadow: var(--shadow-md); 
-            transition: 0.3s; 
-            align-items: center; 
-            justify-content: center; 
-        }
-        #backToTopBtn.show { 
-            display: flex; 
-            animation: fadeIn 0.3s; 
-        }
-        #backToTopBtn:hover { 
-            background-color: var(--dark-bg); 
-            transform: translateY(-5px); 
-        }
-
-        /* Footer */
-        footer { 
-            background-color: var(--dark-bg); 
-            color: var(--white); 
-            text-align: center; 
-            padding: 50px 20px 30px; 
-            margin-top: 60px; 
-        }
-        .footer-logo { 
-            width: 80px; 
-            border-radius: 50%; 
-            margin-bottom: 15px; 
-            border: 2px solid rgba(255,255,255,0.2); 
-        }
-        .developer-credit { 
-            font-size: 14px; 
-            margin-top: 30px; 
-            color: #a5d6a7; 
-            border-top: 1px solid rgba(255,255,255,0.1); 
-            padding-top: 20px; 
-        }
-        .developer-credit a { 
-            color: #ffeb3b; 
-            text-decoration: none; 
-            font-weight: 600; 
-            transition: 0.3s; 
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .header-top { 
-                flex-direction: column; 
-                gap: 15px; 
-                text-align: center; 
-            }
-            .header-actions { 
-                flex-direction: column; 
-                gap: 10px; 
-            }
-            .news-ticker { 
-                top: 155px; 
-                flex-direction: column; 
-                text-align: center; 
-                padding: 5px; 
-            }
-            .news-label { 
-                margin-bottom: 5px; 
-                margin-right: 0; 
-                display: inline-block; 
-            }
-            nav { 
-                top: 215px; 
-                display: flex; 
-                flex-wrap: wrap; 
-                justify-content: center; 
-                padding: 10px 5px; 
-            }
-            nav a { 
-                margin: 5px; 
-                font-size: 14px; 
-                padding: 6px; 
-            }
-            .hero-text { 
-                padding: 30px 20px; 
-            }
-            
-            /* FIXED: Perfect Mobile Scaling for Hero Image */
-            .hero-image { 
-                background-color: var(--white); 
-            }
-            .hero-image img { 
-                width: 100% !important; 
-                height: auto !important; 
-                object-fit: contain !important; 
-                display: block !important; 
-                border-left: none; 
-                border-top: 4px solid var(--primary-green); 
-            }
-            
-            .contact-grid { 
-                grid-template-columns: 1fr; 
-            }
-            .map-container { 
-                height: 250px; 
-            }
-            .slider-item { 
-                flex: 0 0 240px; 
-                max-width: 240px; 
-            } 
-            #backToTopBtn { 
-                bottom: 20px; 
-                right: 20px; 
-                width: 45px; 
-                height: 45px; 
-                font-size: 18px; 
-            }
-            .gallery-card img.news-img {
-                height: auto;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <header class="glass-header">
         <div class="header-top">
             <div class="logo-container">
                 <img src="logo.jpeg" alt="Chetak FPO Logo">
@@ -651,13 +32,16 @@
             </div>
             <div class="header-actions">
                 <div class="contact-info">
-                    <i class="fa-solid fa-phone" style="color: var(--primary-green);"></i> +91 7727966057<br>
-                    <i class="fa-solid fa-envelope" style="color: var(--primary-green);"></i> chetakfposidhpura@gmail.com
+                    <i class="fa-solid fa-phone"></i> +91 7727966057<br>
+                    <i class="fa-solid fa-envelope"></i> chetakfposidhpura@gmail.com
                 </div>
-                <button class="lang-btn" title="Change Language">
-                    <i class="fa-solid fa-language"></i> अ / A
+                <button id="themeToggle" class="icon-btn" title="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-moon"></i>
                 </button>
             </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </header>
 
@@ -668,7 +52,7 @@
         </div>
     </div>
 
-    <nav>
+    <nav id="mainNav">
         <a href="#home"><i class="fa-solid fa-house"></i> होम</a>
         <a href="#about"><i class="fa-solid fa-circle-info"></i> परिचय</a>
         <a href="#documents"><i class="fa-solid fa-file-shield"></i> दस्तावेज़</a>
@@ -684,63 +68,64 @@
                 <h2><i class="fa-regular fa-newspaper"></i> प्रतापगढ़ में 'चेतक FPO' की शानदार शुरुआत</h2>
                 <p>नाबार्ड (NABARD) के विशेष सहयोग से सिद्धपुरा में गठित, प्रतापगढ़ के किसानों को समर्पित एक आधुनिक संगठन। कलेक्टर डॉ. अंजलि राजोरिया ने स्वीकृति पत्र सौंपा।</p>
                 
-                <p style="margin-top: 15px; font-weight: 600; color: var(--primary-green);">किसानों को लाभ:</p>
+                <p class="highlight-title">किसानों को लाभ:</p>
                 <ul class="feature-list">
                     <li><i class="fa-solid fa-seedling"></i> खेती के लिए उन्नत खाद-बीज सस्ती दरों पर</li>
                     <li><i class="fa-solid fa-sack-dollar"></i> बिचौलियों से मुक्ति, सीधे बाजार से जुड़ाव</li>
                     <li><i class="fa-solid fa-hand-holding-dollar"></i> सरकारी सब्सिडी और बैंक ऋण में सहायता</li>
                 </ul>
-                <p style="margin-top: 20px; font-weight: 600; color: #d32f2f;"><i class="fa-solid fa-bullseye"></i> उद्देश्य: किसानों को संगठित कर आय बढ़ाना और उन्हें उद्यमी बनाना।</p>
+                <p class="hero-objective"><i class="fa-solid fa-bullseye"></i> उद्देश्य: किसानों को संगठित कर आय बढ़ाना और उन्हें उद्यमी बनाना।</p>
             </div>
-            <div class="hero-image">
-                <img src="collector-meeting.jpeg" alt="District Collector Meeting">
+            <div class="hero-image-slider">
+                <img src="collector-meeting.jpeg" alt="District Collector Meeting" class="slide active">
+                <img src="fpo-banner.jpeg" alt="FPO Banner" class="slide">
             </div>
         </div>
 
         <div class="content-box fade-in" id="about">
             <h2 class="section-title">संस्था का परिचय</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 16px;">
+            <p class="section-desc">
                 <strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong> किसानों का एक समर्पित और पंजीकृत संगठन है। हमारा मुख्य उद्देश्य किसानों को तकनीकी रूप से उन्नत, आर्थिक रूप से सशक्त और पूर्णतः आत्मनिर्भर बनाना है।
             </p>
             
-            <div style="background-color: var(--light-green); padding: 25px; border-radius: 10px; border: 1px solid #c8e6c9; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; text-align: center;">
-                <div>
-                    <i class="fa-solid fa-building-columns" style="font-size: 30px; color: var(--primary-green); margin-bottom: 10px;"></i>
-                    <h4 style="color: #333;">वित्तीय सहयोगी</h4>
-                    <p style="font-weight: 600; color: var(--primary-green);">नाबार्ड (NABARD)</p>
+            <div class="partner-grid">
+                <div class="partner-card">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <h4>वित्तीय सहयोगी</h4>
+                    <p>नाबार्ड (NABARD)</p>
                 </div>
-                <div>
-                    <i class="fa-solid fa-users-gear" style="font-size: 30px; color: var(--primary-green); margin-bottom: 10px;"></i>
-                    <h4 style="color: #333;">मार्गदर्शक संस्था (POPI)</h4>
-                    <p style="font-weight: 600; color: var(--primary-green);">अरुणोदय सर्वेश्वरी समिति</p>
+                <div class="partner-card">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h4>मार्गदर्शक संस्था (POPI)</h4>
+                    <p>अरुणोदय सर्वेश्वरी समिति</p>
                 </div>
             </div>
         </div>
 
         <div class="content-box fade-in" id="documents">
             <h2 class="section-title">आधिकारिक दस्तावेज़</h2>
-            <p style="text-align: center; margin-bottom: 20px;">हमारी संस्था पूर्णतः पंजीकृत और भारत सरकार द्वारा प्रमाणित है। (दस्तावेज़ बड़ा करने के लिए क्लिक करें)</p>
+            <p class="section-desc">हमारी संस्था पूर्णतः पंजीकृत और भारत सरकार द्वारा प्रमाणित है। (दस्तावेज़ बड़ा करने के लिए क्लिक करें)</p>
             
             <div class="slider-wrapper">
                 <div class="slider-container" id="autoSlider">
                     <div class="slider-item">
-                        <img src="doc-reg.jpeg" alt="FSSAI लाइसेंस" class="zoomable-img">
+                        <img src="doc-reg.jpeg" alt="FSSAI लाइसेंस" class="zoomable-img" loading="lazy">
                         <h4>🍽️ FSSAI लाइसेंस</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-pan.jpeg" alt="पैन कार्ड" class="zoomable-img">
+                        <img src="doc-pan.jpeg" alt="पैन कार्ड" class="zoomable-img" loading="lazy">
                         <h4>💳 पैन कार्ड (PAN)</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-udyam.jpeg" alt="उद्यम प्रमाणपत्र" class="zoomable-img">
+                        <img src="doc-udyam.jpeg" alt="उद्यम प्रमाणपत्र" class="zoomable-img" loading="lazy">
                         <h4>🏢 उद्यम प्रमाणपत्र</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-gst.jpeg" alt="GST प्रमाणपत्र" class="zoomable-img">
+                        <img src="doc-gst.jpeg" alt="GST प्रमाणपत्र" class="zoomable-img" loading="lazy">
                         <h4>🧾 GST प्रमाणपत्र</h4>
                     </div>
                     <div class="slider-item">
-                        <img src="doc-fssai.jpeg" alt="पंजीकरण प्रमाणपत्र" class="zoomable-img">
+                        <img src="doc-fssai.jpeg" alt="पंजीकरण प्रमाणपत्र" class="zoomable-img" loading="lazy">
                         <h4>📄 पंजीकरण प्रमाणपत्र</h4>
                     </div>
                 </div>
@@ -749,19 +134,19 @@
 
         <div class="content-box fade-in" id="media">
             <h2 class="section-title">मीडिया कवरेज</h2>
-            <p style="text-align: center; margin-bottom: 20px; color: #555;">समाचार पत्रों और मीडिया चैनलों में चेतक FPO की ख़बरें (ख़बर को पढ़ने के लिए क्लिक करें)</p>
+            <p class="section-desc">समाचार पत्रों और मीडिया चैनलों में चेतक FPO की ख़बरें (ख़बर को पढ़ने के लिए क्लिक करें)</p>
             
-            <div class="grid-gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <div class="grid-gallery media-grid">
                 <div class="gallery-card">
-                    <img src="news-bhaskar.jpeg" alt="दैनिक भास्कर कवरेज" class="zoomable-img news-img">
+                    <img src="news-bhaskar.jpeg" alt="दैनिक भास्कर कवरेज" class="zoomable-img news-img" loading="lazy">
                     <p>दैनिक भास्कर</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="news-navjyoti.jpeg" alt="दैनिक नवज्योति कवरेज" class="zoomable-img news-img">
+                    <img src="news-navjyoti.jpeg" alt="दैनिक नवज्योति कवरेज" class="zoomable-img news-img" loading="lazy">
                     <p>दैनिक नवज्योति</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="news-gtv.jpeg" alt="GTV राजस्थान न्यूज़" class="zoomable-img news-img">
+                    <img src="news-gtv.jpeg" alt="GTV राजस्थान न्यूज़" class="zoomable-img news-img" loading="lazy">
                     <p>GTV राजस्थान न्यूज़</p>
                 </div>
             </div>
@@ -771,35 +156,35 @@
             <h2 class="section-title">फोटो गैलरी</h2>
             <div class="grid-gallery">
                 <div class="gallery-card">
-                    <img src="gallery-office-1.jpeg" alt="कार्यालय गतिविधि" class="zoomable-img">
+                    <img src="gallery-office-1.jpeg" alt="कार्यालय गतिविधि" class="zoomable-img" loading="lazy">
                     <p>कार्यालय गतिविधि</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallery-office-2.jpeg" alt="चेतक FPO" class="zoomable-img">
+                    <img src="gallery-office-2.jpeg" alt="चेतक FPO" class="zoomable-img" loading="lazy">
                     <p>चेतक FPO</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallery-office-3.jpeg" alt="सदस्यों के साथ चर्चा" class="zoomable-img">
+                    <img src="gallery-office-3.jpeg" alt="सदस्यों के साथ चर्चा" class="zoomable-img" loading="lazy">
                     <p>सदस्यों के साथ चर्चा</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallery-farmer-meeting.jpeg" alt="किसान बैठक व जागरूकता" class="zoomable-img">
+                    <img src="gallery-farmer-meeting.jpeg" alt="किसान बैठक व जागरूकता" class="zoomable-img" loading="lazy">
                     <p>किसान बैठक व जागरूकता</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="certificates-photo.jpeg" class="fix-all-photo zoomable-img" alt="CEO PAVAN VAISHNAV प्रमाणपत्रों के साथ">
+                    <img src="certificates-photo.jpeg" class="fix-all-photo zoomable-img" alt="CEO PAVAN VAISHNAV प्रमाणपत्रों के साथ" loading="lazy">
                     <p>CEO PAVAN VAISHNAV प्रमाणपत्रों के साथ</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="fpo-banner.jpeg" alt="संस्था का आधिकारिक बैनर" class="zoomable-img">
+                    <img src="fpo-banner.jpeg" alt="संस्था का आधिकारिक बैनर" class="zoomable-img" loading="lazy">
                     <p>संस्था का बैनर</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="activity-poster.jpeg" alt="मुख्य विशेषताएं" class="zoomable-img">
+                    <img src="activity-poster.jpeg" alt="मुख्य विशेषताएं" class="zoomable-img" loading="lazy">
                     <p>मुख्य विशेषताएं</p>
                 </div>
                 <div class="gallery-card">
-                    <img src="gallery-office-old.jpeg" alt="कार्यालय उद्घाटन समारोह" class="zoomable-img">
+                    <img src="gallery-office-old.jpeg" alt="कार्यालय उद्घाटन समारोह" class="zoomable-img" loading="lazy">
                     <p>कार्यालय उद्घाटन समारोह</p>
                 </div>
             </div>
@@ -812,24 +197,24 @@
                     <iframe src="https://maps.google.com/maps?q=Siddhpura,%20Pratapgarh,%20Rajasthan&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 
-                <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <div style="background: var(--light-green); padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #c8e6c9;">
-                        <h4 style="margin-bottom: 10px; font-size: 18px;"><i class="fa-solid fa-location-dot"></i> पता:</h4>
+                <div class="contact-details-wrapper">
+                    <div class="address-box">
+                        <h4><i class="fa-solid fa-location-dot"></i> पता:</h4>
                         <p><strong>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</strong><br><br>ग्राम सिद्धपुरा, वार्ड नं. 2, पाटीदार मोहल्ला,<br>जिला प्रतापगढ़, राजस्थान – 312616</p>
                     </div>
                     
                     <div class="action-buttons">
                         <a href="https://api.whatsapp.com/send?phone=917727966057&text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87" target="_blank" class="btn btn-whatsapp">
-                            <i class="fa-brands fa-whatsapp" style="font-size: 22px;"></i> WhatsApp करें
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp करें
                         </a>
                         <a href="https://www.instagram.com/officevaishnavpavan?igsh=dzFleWVyOXpkdnFr" target="_blank" class="btn btn-instagram">
-                            <i class="fa-brands fa-instagram" style="font-size: 22px;"></i> Instagram
+                            <i class="fa-brands fa-instagram"></i> Instagram
                         </a>
                         <a href="tel:+917727966057" class="btn btn-call">
-                            <i class="fa-solid fa-phone" style="font-size: 20px;"></i> कॉल करें
+                            <i class="fa-solid fa-phone"></i> कॉल करें
                         </a>
                         <a href="mailto:chetakfposidhpura@gmail.com" class="btn btn-email">
-                            <i class="fa-solid fa-envelope" style="font-size: 20px;"></i> ईमेल भेजें
+                            <i class="fa-solid fa-envelope"></i> ईमेल भेजें
                         </a>
                     </div>
                 </div>
@@ -839,13 +224,13 @@
     </div>
 
     <footer>
-        <img src="logo.jpeg" alt="Logo" class="footer-logo">
-        <h2 style="color: white; margin-bottom: 5px;">चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</h2>
-        <p style="color: #ccc;">किसानों की प्रगति, हमारा संकल्प।</p>
+        <img src="logo.jpeg" alt="Logo" class="footer-logo" loading="lazy">
+        <h2>चेतक फार्मर प्रोडूसर आर्गेनाइजेशन कोऑपरेटिव सोसाइटी लिमिटेड सिद्धपुरा</h2>
+        <p class="footer-tagline">किसानों की प्रगति, हमारा संकल्प।</p>
         
         <div class="developer-credit">
             <i class="fa-solid fa-laptop-code"></i> Designed & Developed by <strong>Vishal Vaishnav</strong><br>
-            <a href="https://api.whatsapp.com/send?phone=916367180391" target="_blank" style="display: inline-block; margin-top: 5px;">
+            <a href="https://api.whatsapp.com/send?phone=916367180391" target="_blank" class="dev-whatsapp">
                 <i class="fa-brands fa-whatsapp"></i> +91 6367180391
             </a>
         </div>
@@ -859,86 +244,6 @@
 
     <button id="backToTopBtn" title="सबसे ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            
-            // 1. Fade-in Animation
-            const observer = new IntersectionObserver((entries) => { 
-                entries.forEach(entry => { 
-                    if (entry.isIntersecting) { 
-                        entry.target.classList.add('visible'); 
-                    } 
-                }); 
-            }, { threshold: 0.1 });
-            
-            document.querySelectorAll('.fade-in').forEach((el) => { 
-                observer.observe(el); 
-            });
-
-            // 2. Automatic Slider Logic
-            const slider = document.getElementById('autoSlider');
-            if (slider) {
-                let scrollInterval;
-                const startAutoScroll = () => { 
-                    scrollInterval = setInterval(() => { 
-                        if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) { 
-                            slider.scrollTo({ left: 0, behavior: 'smooth' }); 
-                        } else { 
-                            const itemWidth = slider.querySelector('.slider-item').offsetWidth + 20; 
-                            slider.scrollBy({ left: itemWidth, behavior: 'smooth' }); 
-                        } 
-                    }, 3000); 
-                };
-                
-                const stopAutoScroll = () => clearInterval(scrollInterval);
-                startAutoScroll();
-                
-                slider.addEventListener('mouseover', stopAutoScroll); 
-                slider.addEventListener('mouseout', startAutoScroll);
-                slider.addEventListener('touchstart', stopAutoScroll); 
-                slider.addEventListener('touchend', startAutoScroll);
-            }
-
-            // 3. FIXED: Lightbox (Zoom) Logic with Flexbox
-            const modal = document.getElementById("lightboxModal");
-            const modalImg = document.getElementById("lightboxImg");
-            const captionText = document.getElementById("lightbox-caption");
-            
-            document.querySelectorAll('.zoomable-img').forEach(img => { 
-                img.addEventListener('click', function() { 
-                    modal.style.display = "flex";  /* CHANGED TO FLEX FOR PERFECT CENTERING */
-                    modalImg.src = this.src; 
-                    captionText.innerHTML = this.alt; 
-                }); 
-            });
-            
-            document.querySelector(".lightbox-close").onclick = function() { 
-                modal.style.display = "none"; 
-            }
-            
-            window.onclick = function(event) { 
-                if (event.target == modal) { 
-                    modal.style.display = "none"; 
-                } 
-            }
-
-            // 4. Back to Top Button Logic
-            const backToTopBtn = document.getElementById("backToTopBtn");
-            
-            window.onscroll = function() { 
-                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { 
-                    backToTopBtn.classList.add("show"); 
-                } else { 
-                    backToTopBtn.classList.remove("show"); 
-                } 
-            };
-            
-            backToTopBtn.addEventListener("click", function() { 
-                window.scrollTo({ top: 0, behavior: "smooth" }); 
-            });
-            
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
